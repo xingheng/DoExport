@@ -84,10 +84,10 @@
     <Compile Include="Forms\FrmRequestSelect.Designer.cs">
       <DependentUpon>FrmRequestSelect.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmConvertTime.cs">
+    <Compile Include="Forms\FrmConvertTime.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmConvertTime.Designer.cs">
+    <Compile Include="Forms\FrmConvertTime.Designer.cs">
       <DependentUpon>FrmConvertTime.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmUserInfo.cs">
@@ -184,7 +184,7 @@
     <EmbeddedResource Include="Forms\FrmRequestSelect.resx">
       <DependentUpon>FrmRequestSelect.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmConvertTime.resx">
+    <EmbeddedResource Include="Forms\FrmConvertTime.resx">
       <DependentUpon>FrmConvertTime.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUserInfo.resx">
