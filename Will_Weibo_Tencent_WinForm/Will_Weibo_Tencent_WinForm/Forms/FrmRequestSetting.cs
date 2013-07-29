@@ -281,9 +281,44 @@ namespace Will_Weibo_Tencent
                 mTxtRequestLen.Text = maxLength.ToString();
         }
 
-        private void btnCheckName_Click(object sender, EventArgs e)
+        private async void btnCheckName_Click(object sender, EventArgs e)
         {
+            Request requestForCheckName = new Request(TimelineKind.SpecifiedPersonWeibo);
 
+            // Save the original value for the following members at first.
+            string tmp_Username = RequestArgs.userName;
+            int tmp_RequestLen = RequestArgs.requestLength;
+
+            RequestArgs.userName = txtUserName.Text.Trim();
+            RequestArgs.requestLength = 1;  // We just want to check the return error, this is not important.
+
+            requestForCheckName.GenerateRequestString();
+
+            WeiboInfo[] list = await requestForCheckName.SendRequest();
+            WeiboErrorCode err = requestForCheckName.LastErrCode;
+
+            if (list.Length > 0 && list.Length <= RequestArgs.requestLength)
+                goto LSuccess;
+            else
+            {
+                if (err.FSuccess())
+                    goto LSuccess;
+                else
+                    goto LFailed;
+            }
+
+        LEnd:
+            RequestArgs.userName = tmp_Username;
+            RequestArgs.requestLength = tmp_RequestLen;
+            return;
+
+        LSuccess:
+            MessageBox.Show("The user name looks good!", "Check Name");
+            goto LEnd;
+
+        LFailed:
+            MessageBox.Show("It seems the user name is bad, please check it.\r\n\r\n" + err.GetErrorString(), "Check Name");
+            goto LEnd;
         }
     }
 }

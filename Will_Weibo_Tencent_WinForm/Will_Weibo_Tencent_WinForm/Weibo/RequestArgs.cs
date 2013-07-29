@@ -114,7 +114,7 @@ namespace Will_Weibo_Tencent
         /// Generate the request string using the data from its and RequestArgsmembers' members.
         /// </summary>
         /// <returns>True if getting the request string successfully, otherwise, false.</returns>
-        private bool GenerateRequestString()
+        public bool GenerateRequestString()
         {
             string strRequest = "";
             switch (m_kindFlag)
