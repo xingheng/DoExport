@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Will_Weibo_Tencent_WinForm", "Will_Weibo_Tencent_WinForm\Will_Weibo_Tencent_WinForm.csproj", "{C9332169-A1CA-414C-B6D9-9181F4E9CA1C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C9332169-A1CA-414C-B6D9-9181F4E9CA1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9332169-A1CA-414C-B6D9-9181F4E9CA1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9332169-A1CA-414C-B6D9-9181F4E9CA1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9332169-A1CA-414C-B6D9-9181F4E9CA1C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

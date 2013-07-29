@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<!--The following data comes from Tencent Inc. Once the open platform updated them, we should do the same here.-->
+<!--Once we changed the structure of this file, we should re-implement the related function that is response for error code.-->
+<!--Created by Wei Han. July 4, 2013.-->
+<root>
+  <ret value="0" description="成功返回">
+  </ret>
+  <ret value="1" description="参数错误">
+    <errcode value="1" description="调用接口时所填写的clientip错误，必须为用户侧真实ip，不能为内网ip、以127及255开头的ip"></errcode>
+  </ret>
+  <ret value="2" description="频率受限">
+  </ret>
+  <ret value="3" description="鉴权失败">
+    <!--OAuth 2.0-->
+    <errcode value="0" description="成功"></errcode>
+    <errcode value="10001" description="缺少参数client_id"></errcode>
+    <errcode value="10002" description="缺少参数client_secret"></errcode>
+    <errcode value="10003" description="缺少参数response_type"></errcode>
+    <errcode value="10004" description="缺少参数grant_type"></errcode>
+    <errcode value="10005" description="缺少参数redirect_uri"></errcode>
+    <errcode value="10006" description="缺少参数code"></errcode>
+    <errcode value="10007" description="client_id非法"></errcode>
+    <errcode value="10008" description="client_id不存在"></errcode>
+    <errcode value="10009" description="client_secret长度非法"></errcode>
+    <errcode value="10010" description="client_secret非法"></errcode>
+    <errcode value="10011" description="response_type非法"></errcode>
+    <errcode value="10012" description="grant_type非法"></errcode>
+    <errcode value="10013" description="redirect_uri非法"></errcode>
+    <errcode value="10014" description="redirect_uri与请求code时的redirect_uri不匹配"></errcode>
+    <errcode value="10015" description="redirect_uri与应用注册的redirect_uri不一致"></errcode>
+    <errcode value="10016" description="app状态不可用"></errcode>
+    <errcode value="10017" description="code已经被使用"></errcode>
+    <errcode value="10018" description="code非法"></errcode>
+    <errcode value="10019" description="code过期"></errcode>
+    <errcode value="10020" description="获取code不成功"></errcode>
+    <errcode value="10021" description="获取accesstoken不成功"></errcode>
+    <errcode value="10022" description="系统内部错误"></errcode>
+    <errcode value="10036" description="缺少refresh_token"></errcode>
+    <errcode value="10037" description="refresh_token非法"></errcode>
+    <errcode value="10038" description="refresh_token过期"></errcode>
+    <errcode value="10039" description="refresh_token被废弃"></errcode>
+    <errcode value="10040" description="刷新token次数达到上限"></errcode>
+    <errcode value="10041" description="refresh_token非法"></errcode>
+    <errcode value="10042" description="获取refresh_token失败"></errcode>
+    <errcode value="10043" description="此appid授权操作受限"></errcode>
+    <errcode value="30" description="请求非https"></errcode>
+    <errcode value="31" description="版本错误"></errcode>
+    <errcode value="32" description="appkey不存在"></errcode>
+    <errcode value="33" description="appkey非法"></errcode>
+    <errcode value="34" description="appkey和accesstoken不匹配"></errcode>
+    <errcode value="35" description="openid非法"></errcode>
+    <errcode value="36" description="accesstoken非法"></errcode>
+    <errcode value="37" description="accesstoken过期"></errcode>
+    <errcode value="38" description="accesstoken被废弃"></errcode>
+    <errcode value="39" description="参数长度非法"></errcode>
+    <errcode value="40" description="accesstoken长度非法"></errcode>
+    <errcode value="41" description="未知的鉴权错误"></errcode>
+  </ret>
+  <ret value="4" description="服务器内部错误">
+    <errcode value="0" description="表示成功"></errcode>
+    <!--******************************************-->
+    <!--************Read Operation****************-->
+    <errcode value="4" description="表示有过多脏话"></errcode>
+    <errcode value="5" description="禁止访问，如城市，uin黑名单限制等"></errcode>
+    <errcode value="6" description="删除时：该记录不存在。发表时：父节点已不存在"></errcode>
+    <errcode value="8" description="内容超过最大长度：420字节 （以进行短url处理后的长度计）"></errcode>
+    <errcode value="9" description="包含垃圾信息：广告，恶意链接、黑名单号码等"></errcode>
+    <errcode value="10" description="发表太快，被频率限制"></errcode>
+    <errcode value="11" description="源消息已删除，如转播或回复时"></errcode>
+    <errcode value="12" description="源消息审核中"></errcode>
+    <errcode value="13" description="重复发表"></errcode>
+    <errcode value="14" description="未实名认证"></errcode>
+    <!--******************************************-->
+    <!--************Write Operation***************-->
+    <errcode value="22" description="表示好友最大值满"></errcode>
+    <errcode value="23" description="收听对象的听众达到上限"></errcode>
+    <errcode value="49" description="添加好友个数为0"></errcode>
+    <errcode value="65" description="增加的偶像列表中，有人在我的黑名单中"></errcode>
+    <errcode value="66" description="增加的偶像列表中有用户没有开通微博帐户"></errcode>
+    <errcode value="67" description="增加的偶像列表中，你在对方黑名单里（部分或全部）"></errcode>
+    <!--******************************************-->
+  </ret>
+  <ret value="5" description="用户错误">
+  </ret>
+  <ret value="6" description="">
+  </ret>
+  <ret value="7" description="未实名认证">
+  </ret>
+</root>

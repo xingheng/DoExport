@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <data>
+    <hasnext></hasnext>
+
+    <info>
+      <city_code/>
+      <count>0</count>
+      <country_code>1</country_code>
+      <emotiontype>0</emotiontype>
+      <emotionurl/>
+      <from>享拍微博通</from>
+      <fromurl>
+        http://wbto.cn/
+      </fromurl>
+      <geo/>
+      <head>http://app.qlogo.cn/mbloghead/9340e14a5c9f415351d2</head>
+      <https_head>https://app.qlogo.cn/mbloghead/9340e14a5c9f415351d2</https_head>
+      <id>185990015988830</id>
+      <image/>
+      <isrealname>1</isrealname>
+      <isvip>1</isvip>
+      <jing>0</jing>
+      <latitude>0</latitude>
+      <location>中国 上海</location>
+      <longitude>0</longitude>
+      <mcount>0</mcount>
+      <music/>
+      <name>runliu</name>
+      <nick>刘润</nick>
+      <openid>13E8261CAF63051CE67398C2A53144C6</openid>
+      <origtext>#价值引力# 一位听了我《九种武器》管理培训的学员写信说深受启发，要苦学管理，请我再推荐些书。我回复说：管理恰恰无法从看书学来，我建议：1）找位欣赏的导师；2）参加专业的培训；3）多实践，多总结，悟变化。独立贡献者和管理者价值模型不同，每个经理人都要经历建立新模型的心智转变，祝你成功！</origtext>
+      <province_code>31</province_code>
+      <self>0</self>
+      <source/>
+      <status>0</status>
+      <text>#价值引力# 一位听了我《九种武器》管理培训的学员写信说深受启发，要苦学管理，请我再推荐些书。我回复说：管理恰恰无法从看书学来，我建议：1）找位欣赏的导师；2）参加专业的培训；3）多实践，多总结，悟变化。独立贡献者和管理者价值模型不同，每个经理人都要经历建立新模型的心智转变，祝你成功！</text>
+      <timestamp>1371393493</timestamp>
+      <type>1</type>
+      <video/>
+      <wei>0</wei>
+    </info>
+    
+    <info>
+      
+    </info>
+
+    <timestamp></timestamp>
+    <totalnum></totalnum>
+    <user>
+      
+    </user>
+  </data>
+  <errorcode></errorcode>
+  <msg></msg>
+  <ret></ret>
+  <seqid></seqid>
+</root>
