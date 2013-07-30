@@ -1,6 +1,6 @@
 ﻿
 #if DEBUG
-//#define DEBUG_SPECIFIED_WINDOW
+//#define DEBUG_SPECIFIED_WINDOW    // ONLY FOR DEBUGGING
 #endif
 
 using System;
