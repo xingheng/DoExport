@@ -202,7 +202,7 @@ namespace Will_Weibo_Tencent
                             if (fFoundFirst)
                             {
                                 long curTimestamp = 0;
-                                MsgResult.AssertMsg(Int64.TryParse(item.timestamp, out curTimestamp), "Int64.TryParse() failed.");
+                                MsgResult.WriteLine(Int64.TryParse(item.timestamp, out curTimestamp), "Int64.TryParse() failed.");
                                 if (option == TimeStampOption.StartFrom)
                                 {
                                     if (curTimestamp > g_lTimestamp)    // lookup the first one exactly!
@@ -255,7 +255,7 @@ namespace Will_Weibo_Tencent
                         //exportedLength = weiboList.Length;
                         exportedSum += exportedLength;
 
-                        long_last_timestamp = Convert.ToInt64(g_ExportRequest.LastTimestamp);
+                        MsgResult.WriteLine(Int64.TryParse(g_ExportRequest.LastTimestamp, out long_last_timestamp), "Int64.TryParse() failed.");
                     }
                     else // Interesting case! There may be an end.
                     {
@@ -303,7 +303,7 @@ namespace Will_Weibo_Tencent
                             compared_TimeStamp, long_last_timestamp);
                         goto LError;
                     }
-                    else if (exportedSum > totalNum)
+                    else if (totalNum > 0 && exportedSum > totalNum)
                     {
                         collectLog.Reason = String.Format("exportedSum > totalNum. exportedSum: {0}, totalNum: {1}",
                             exportedSum, totalNum);

@@ -63,7 +63,7 @@ namespace Will_Weibo_Tencent
             }
         }
 
-        public async Task<WeiboInfo[]> SendRequest()
+        private async Task<WeiboInfo[]> SendRequest()
         {
             WeiboErrorCode err;
             WeiboInfo[] weiboList;

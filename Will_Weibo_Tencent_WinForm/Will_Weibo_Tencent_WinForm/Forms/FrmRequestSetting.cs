@@ -150,10 +150,20 @@ namespace Will_Weibo_Tencent
                 GroupBoxEnabled(false, false, false, true);
             else if (strFlag == RequestKind.SpecifiedPersonWeibo)
                 GroupBoxEnabled(false, true, true, true, true);
+            else if (strFlag == RequestKind.TypeChannel)
+                GroupBoxEnabled(false, true, true, false);
             else
                 MsgResult.WriteLine("Invalid parameter. strFlag:", strFlag);
         }
 
+        /// <summary>
+        /// Enable/Disable the group box.
+        /// </summary>
+        /// <param name="b1">Type Filter 1</param>
+        /// <param name="b2">Type Filter 2</param>
+        /// <param name="b3">Content Filter</param>
+        /// <param name="b4">Other group</param>
+        /// <param name="b5">Username in "Other" group</param>
         private void GroupBoxEnabled(bool b1, bool b2, bool b3, bool b4, bool b5 = false)
         {
             gBoxTypeFilter1.Enabled = b1;
