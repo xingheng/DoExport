@@ -14,7 +14,8 @@ namespace Will_Weibo_Tencent
         MyPrivateWeibo,
         MyHomePage,
         MyFavouriteWeibo,
-        SpecifiedPersonWeibo
+        SpecifiedPersonWeibo,
+        TypeChannel
     }
 
     public struct RequestKind
@@ -23,6 +24,7 @@ namespace Will_Weibo_Tencent
         public static readonly string MyHomePage = "我的微博主页";
         public static readonly string MyFavouriteWeibo = "我收藏的所有微博";
         public static readonly string SpecifiedPersonWeibo = "指定人的个人微博";
+        public static readonly string TypeChannel = "微频道";
     }
     //----------------------------------END ---------------------------------------
     //-----------------------------------------------------------------------------
@@ -46,6 +48,8 @@ namespace Will_Weibo_Tencent
                 kind = TimelineKind.MyFavouriteWeibo;
             else if (kindArgs == RequestKind.SpecifiedPersonWeibo)
                 kind = TimelineKind.SpecifiedPersonWeibo;
+            else if (kindArgs == RequestKind.TypeChannel)
+                kind = TimelineKind.TypeChannel;
             else
                 MsgResult.DebugMsgBox("Unexpected parameters! kindArgs:", kindArgs);
             return kind;
@@ -177,6 +181,24 @@ namespace Will_Weibo_Tencent
                             "&fopenid=" +
                             "&type=" + RequestArgs.weiboType.ToString() +
                             "&contenttype=" + RequestArgs.contentType.ToString() +
+                            "&oauth_consumer_key=" + SharedMem.AppKey +
+                            "&access_token=" + SharedMem.accessToken +
+                            "&openid=" + SharedMem.openID +
+                            "&clientip=" + PublicMem.GetIPAddress() +
+                            "&oauth_version=2.a&scope=xx";
+                    }
+                    break;
+                case TimelineKind.TypeChannel:
+                    {
+                        strRequest = "http://open.t.qq.com/api/channel/timeline?" +
+                            "format=xml" +
+                            "&name=美女" +
+                            "&id=" +
+                            "&reqnum=" + RequestArgs.requestLength.ToString() +
+                            "&content_type=" + RequestArgs.contentType.ToString() +
+                            "&pageflag=" + m_pageFlag.ToString() +
+                            "&pagetime=" + m_lastTimestamp +
+                            "&lastid=" + m_lastWeiboID +
                             "&oauth_consumer_key=" + SharedMem.AppKey +
                             "&access_token=" + SharedMem.accessToken +
                             "&openid=" + SharedMem.openID +

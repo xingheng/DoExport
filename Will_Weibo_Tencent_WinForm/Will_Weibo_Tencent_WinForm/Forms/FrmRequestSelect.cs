@@ -35,6 +35,7 @@ namespace Will_Weibo_Tencent
             comboBoxCondition.Items.Add(RequestKind.MyHomePage);
             comboBoxCondition.Items.Add(RequestKind.MyFavouriteWeibo);
             comboBoxCondition.Items.Add(RequestKind.SpecifiedPersonWeibo);
+            comboBoxCondition.Items.Add(RequestKind.TypeChannel);
 
             comboBoxCondition.SelectedIndexChanged += delegate(object senderA, EventArgs eventA)
             {

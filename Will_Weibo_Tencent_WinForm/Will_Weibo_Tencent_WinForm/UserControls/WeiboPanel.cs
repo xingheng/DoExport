@@ -224,6 +224,10 @@ namespace Will_Weibo_Tencent
             {
                 picBoxWeiboImage.ImageLocation = imgURL;
             }
+            else if (String.IsNullOrEmpty(imgURL))
+            {
+                MsgResult.WriteLine("Invalid image URL? ", imgURL);
+            }
         }
 
         /// <summary>
@@ -248,7 +252,7 @@ namespace Will_Weibo_Tencent
 
         private void SetPostTime(DateTime time)
         {
-            if (time != null)
+            if (time != null && time != DateTime.MinValue/* Invalid DateTime */)
             {
                 lblTime.Text = time.ToShortDateString();
             }

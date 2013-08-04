@@ -8,31 +8,31 @@ namespace Will_Weibo_Tencent
     {
         public static readonly string g_URLSeparator = " || ";
 
-        public static bool ParseInfoNodeString(string xmlString, out XmlNode dataNodeList/*out XmlNodeList infoNodeList*/)
-        {
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.LoadXml(xmlString);
+        //public static bool ParseInfoNodeString(string xmlString, out XmlNode dataNodeList/*out XmlNodeList infoNodeList*/)
+        //{
+        //    XmlDocument xmlDoc = new XmlDocument();
+        //    xmlDoc.LoadXml(xmlString);
 
-            XmlNode root = xmlDoc.SelectSingleNode("root");
-            XmlNode data = root.SelectSingleNode("data");
+        //    XmlNode root = xmlDoc.SelectSingleNode("root");
+        //    XmlNode data = root.SelectSingleNode("data");
 
-            XmlNodeList nodeList = data.ChildNodes;
+        //    XmlNodeList nodeList = data.ChildNodes;
             
-            int i= 0;
-            object[] shouldRemovedNode = new object[nodeList.Count];
-            foreach (XmlNode item in nodeList)
-                if (item.Name.Trim().ToLower() != "info")
-                    shouldRemovedNode[i++] = item;
+        //    int i= 0;
+        //    object[] shouldRemovedNode = new object[nodeList.Count];
+        //    foreach (XmlNode item in nodeList)
+        //        if (item.Name.Trim().ToLower() != "info")
+        //            shouldRemovedNode[i++] = item;
 
-            foreach (XmlNode item in shouldRemovedNode)
-                if (item != null)
-                    data.RemoveChild(item);
+        //    foreach (XmlNode item in shouldRemovedNode)
+        //        if (item != null)
+        //            data.RemoveChild(item);
 
-            //infoNodeList = data.ChildNodes;
-            dataNodeList = data;
+        //    //infoNodeList = data.ChildNodes;
+        //    dataNodeList = data;
 
-            return true;
-        }
+        //    return true;
+        //}
 
         /// <summary>
         /// Parse the xml string to WeiboInfo array.
@@ -50,16 +50,23 @@ namespace Will_Weibo_Tencent
 
             XmlNode root = xmlDoc.SelectSingleNode("root");
             XmlNode data = root.SelectSingleNode("data");
-            
-            XmlNodeList infoList = data.SelectNodes("info");
-
-            weiboList = new WeiboInfo[infoList.Count];
-            int index = 0;
-            foreach (XmlNode info in infoList)
+            if (data != null)
             {
-                WeiboInfo weibo = CollectWeiboInfo(info);
-                
-                weiboList[index++] = weibo;
+                XmlNodeList infoList = data.SelectNodes("info");
+
+                weiboList = new WeiboInfo[infoList.Count];
+                int index = 0;
+                foreach (XmlNode info in infoList)
+                {
+                    WeiboInfo weibo = CollectWeiboInfo(info);
+
+                    weiboList[index++] = weibo;
+                }
+            }
+            else
+            {
+                MsgResult.WriteLine("no data return.");
+                weiboList = null;
             }
 
             #region Initialization of retValue.
@@ -130,7 +137,16 @@ namespace Will_Weibo_Tencent
             foreach (XmlNode imageNode in info.SelectNodes("image"))
             {
                 if (imageNode != null && !String.IsNullOrEmpty(imageNode.InnerText))
-                    weibo.image += g_URLSeparator + imageNode.InnerText;
+                {
+                    /* Sometimes the image node in returned xml data is just like this,
+                     * <image><....><url></url></image>
+                     */
+                    XmlNode image_info_node = imageNode.SelectSingleNode("info");
+                    if (image_info_node != null)
+                        weibo.image = GetInnerTextFromSingleNode(image_info_node, "url");
+                    else
+                        weibo.image += g_URLSeparator + imageNode.InnerText;
+                }
             }
 
             weibo.isrealname = GetInnerTextFromSingleNode(info, "isrealname");
