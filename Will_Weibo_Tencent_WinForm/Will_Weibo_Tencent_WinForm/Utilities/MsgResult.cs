@@ -104,16 +104,35 @@ namespace UTILITIES_HAN
         /// </summary>
         /// <param name="fRet">The assert statement</param>
         /// <param name="argsArr">The message value</param>
-        public static void AssertMsg(bool fRet, params object[] argsArr)
+        public static void AssertMsgBox(bool fRet, params object[] argsArr)
         {
-#if MESSAGEBOX_DEBUG
             string args = "";
             foreach (var item in argsArr)
                 args += item.ToString();
 
+#if MESSAGEBOX_DEBUG
             if (!fRet)
                 MessageBox.Show(args);
 #endif 
+        }
+
+        /// <summary>
+        /// Output the log in console with specified text if assert failed.
+        /// 
+        /// Note: This function just appends the array args values with standard format (string) to result string.
+        /// </summary>
+        /// <param name="fRet">The assert statement</param>
+        /// <param name="argsArr">The message value</param>
+        public static void AssertMsgConsole(bool fRet, params object[] argsArr)
+        {
+            string args = "";
+            foreach (var item in argsArr)
+                args += item.ToString();
+
+#if CONSOLE_DEBUG
+            if (!fRet)
+                Console.WriteLine(args);
+#endif
         }
     }
 }

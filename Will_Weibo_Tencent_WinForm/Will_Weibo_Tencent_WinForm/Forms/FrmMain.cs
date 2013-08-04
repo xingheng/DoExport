@@ -84,7 +84,7 @@ namespace Will_Weibo_Tencent
             }
 
             err = myRequest.LastErrCode;
-            MsgResult.AssertMsg(err.FSuccess(), err.GetErrorString());
+            MsgResult.AssertMsgBox(err.FSuccess(), err.GetErrorString());
 
             if (g_weiboList.Length > 0)
             {

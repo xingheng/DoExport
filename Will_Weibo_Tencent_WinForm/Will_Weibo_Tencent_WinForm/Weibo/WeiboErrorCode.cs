@@ -54,7 +54,7 @@ namespace Will_Weibo_Tencent
             foreach (XmlNode retNode in retNodes)
             {
                 XmlAttributeCollection retAttributes = retNode.Attributes;
-                MsgResult.AssertMsg(retAttributes.Count == 2, "node ret should have only two attributes.");
+                MsgResult.AssertMsgBox(retAttributes.Count == 2, "node ret should have only two attributes.");
 
                 foreach (XmlAttribute item in retNode.Attributes)
                 {
@@ -83,7 +83,7 @@ namespace Will_Weibo_Tencent
                     foreach (XmlNode errocodeNode in errcodeList)
                     {
                         XmlAttributeCollection errcodeAttrs = errocodeNode.Attributes;
-                        MsgResult.AssertMsg(retAttributes.Count == 2, "node errcode should have only two attributes.");
+                        MsgResult.AssertMsgBox(retAttributes.Count == 2, "node errcode should have only two attributes.");
 
                         foreach (XmlAttribute item in errcodeAttrs)
                         {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.IO;
+using System.Collections;
 using UTILITIES_HAN;
 
 namespace Will_Weibo_Tencent
@@ -142,7 +143,7 @@ namespace Will_Weibo_Tencent
 
             g_lTimestamp = 0;
             if (option != TimeStampOption.None)
-                MsgResult.AssertMsg(Int64.TryParse(mTxtTimeStamp.Text.Trim(), out g_lTimestamp), "Int64.TryParse() failed.");
+                MsgResult.AssertMsgBox(Int64.TryParse(mTxtTimeStamp.Text.Trim(), out g_lTimestamp), "Int64.TryParse() failed.");
 
             // ---------------------- The Beginning of Export---------------------
             #region
@@ -165,6 +166,7 @@ namespace Will_Weibo_Tencent
             {
                 do
                 {
+                    ArrayList errList = new ArrayList();    // Save all the error code for every request.
                 LStart:
 
                     WeiboInfo[] weiboList = null;
@@ -179,8 +181,9 @@ namespace Will_Weibo_Tencent
                         collectLog.Reason = String.Format("Request Error:{0}.", err.GetErrorString());
                         MsgResult.DebugMsgBox(err.GetErrorString());
 
-                        // TODO: Should we restart it all the time?
-                        goto LStart;
+                        errList.Add(err);
+                        if (!errList.Contains(err))
+                            goto LStart;
                     }
 
                     if (weiboList != null && weiboList.Length > 0)
@@ -202,7 +205,7 @@ namespace Will_Weibo_Tencent
                             if (fFoundFirst)
                             {
                                 long curTimestamp = 0;
-                                MsgResult.WriteLine(Int64.TryParse(item.timestamp, out curTimestamp), "Int64.TryParse() failed.");
+                                MsgResult.AssertMsgConsole(Int64.TryParse(item.timestamp, out curTimestamp), "Int64.TryParse() failed.");
                                 if (option == TimeStampOption.StartFrom)
                                 {
                                     if (curTimestamp > g_lTimestamp)    // lookup the first one exactly!
@@ -218,7 +221,7 @@ namespace Will_Weibo_Tencent
                                 }
                             }
                             else
-                                MsgResult.AssertMsg(false, "Impossible case! Please check the logic about fFoundFirst.");
+                                MsgResult.AssertMsgBox(false, "Impossible case! Please check the logic about fFoundFirst.");
 
 
                             // For text
@@ -235,7 +238,7 @@ namespace Will_Weibo_Tencent
                                     if (url == null)
                                         continue;
 
-                                    string newImgURL = await DownloadService.DownloadImageToPath(url, savedImageFilePath);
+                                    string newImgURL = await DownloadService.DownloadImageToPath(url, savedImageFilePath, item.timestamp);
 
                                     if (g_FDetailedLog)
                                         AppendResult(String.Format("Downloaded the image '{0}' to path '{1}'.",
@@ -255,7 +258,7 @@ namespace Will_Weibo_Tencent
                         //exportedLength = weiboList.Length;
                         exportedSum += exportedLength;
 
-                        MsgResult.WriteLine(Int64.TryParse(g_ExportRequest.LastTimestamp, out long_last_timestamp), "Int64.TryParse() failed.");
+                        MsgResult.AssertMsgConsole(Int64.TryParse(g_ExportRequest.LastTimestamp, out long_last_timestamp), "Int64.TryParse() failed.");
                     }
                     else // Interesting case! There may be an end.
                     {

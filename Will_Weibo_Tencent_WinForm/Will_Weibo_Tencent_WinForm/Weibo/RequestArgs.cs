@@ -67,7 +67,7 @@ namespace Will_Weibo_Tencent
             m_lastTimestamp = "0";
             m_kindFlag = flag;
 
-            MsgResult.AssertMsg(GenerateRequestString(), "Class Request: Request string failed to init.");
+            MsgResult.AssertMsgBox(GenerateRequestString(), "Class Request: Request string failed to init.");
         }
 
         #region Members and Properties

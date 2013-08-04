@@ -69,7 +69,7 @@ namespace UTILITIES_HAN
 
                 foreach (string item in urls)
                 {
-                    await DownloadImageToPath(item, g_savedImageFolder);
+                    await DownloadImageToPath(item, g_savedImageFolder, "");
                     if (m_urls.Contains(item))
                     {
                         m_urls.Remove(item);
@@ -80,7 +80,7 @@ namespace UTILITIES_HAN
             } //while
         }
 
-        public static async System.Threading.Tasks.Task<string> DownloadImageToPath(string item, string strFolderPathWithoutTail)
+        public static async System.Threading.Tasks.Task<string> DownloadImageToPath(string item, string strFolderPathWithoutTail, string imgFilename)
         {
             string destinationImageURL = "";
 
@@ -100,7 +100,10 @@ namespace UTILITIES_HAN
                 if (img != null)
                 {
                     string imgExtension = contentTypeArr.Length > 0 ? ("." + contentTypeArr[1].ToString()) : "";
-                    string newPath = strFolderPathWithoutTail + "\\" + Guid.NewGuid().ToString() + imgExtension;
+                    string newPath = strFolderPathWithoutTail + "\\";
+                    newPath += (String.IsNullOrEmpty(imgFilename) ? Guid.NewGuid().ToString() : imgFilename);
+                    newPath += imgExtension;
+
                     img.Save(newPath);
                     destinationImageURL = newPath;
 

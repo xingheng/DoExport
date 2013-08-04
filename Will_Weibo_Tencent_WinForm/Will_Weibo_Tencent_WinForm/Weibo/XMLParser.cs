@@ -176,7 +176,12 @@ namespace Will_Weibo_Tencent
 
             weibo.status = GetInnerTextFromSingleNode(info, "status");
             weibo.text = GetInnerTextFromSingleNode(info, "text");
+
+            // timestamp or pubtime?
             weibo.timestamp = GetInnerTextFromSingleNode(info, "timestamp");
+            if (String.IsNullOrEmpty(weibo.timestamp))
+                weibo.timestamp = GetInnerTextFromSingleNode(info, "pubtime");
+
             weibo.type = GetInnerTextFromSingleNode(info, "type");
 
             // TODO

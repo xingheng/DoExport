@@ -177,7 +177,7 @@ namespace Will_Weibo_Tencent
         public DateTime GetTime()
         {
             long timestamp = 0;
-            MsgResult.WriteLine(Int64.TryParse(this.timestamp.Trim(), out timestamp), "Int64.TryParse() failed.");
+            MsgResult.AssertMsgConsole(Int64.TryParse(this.timestamp.Trim(), out timestamp), "Int64.TryParse() failed.");
             DateTime result = DateTime.MinValue;    // Set DateTime.MinValue as default value and mark it as invalid DataTime.
             if (timestamp > 0)
                 result = PublicMem.GetDateTimeFromTimeStamp(timestamp);

@@ -98,7 +98,7 @@ namespace Will_Weibo_Tencent
 
             XMLParser.ParseWeiboInfoList(resultString, out weiboList, out err);
 #endif
-            MsgResult.AssertMsg(err.FSuccess(), err.GetErrorString());
+            MsgResult.AssertMsgBox(err.FSuccess(), err.GetErrorString());
 
             return weiboList;
         }
