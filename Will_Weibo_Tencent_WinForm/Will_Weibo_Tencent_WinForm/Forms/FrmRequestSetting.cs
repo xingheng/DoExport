@@ -76,6 +76,18 @@ namespace Will_Weibo_Tencent
             // Others
             mTxtRequestLen.Text = RequestArgs.requestLength.ToString();
             txtUserName.Text = RequestArgs.userName;
+            txtUserName.EnabledChanged += delegate(object sender, EventArgs e)
+            {
+                btnCheckUserName.Enabled = txtUserName.Enabled;
+            };
+
+            cBoxChannelName.Items.AddRange(new string[] { "首页", "美女", "旅行", "设计",  
+                "摄影", "时尚", "影音", "文化", "生活", "星座", "明星" });
+            cBoxChannelName.SelectedIndex = 0;
+            cBoxChannelName.EnabledChanged += delegate(object sender, EventArgs e)
+            {
+                btnCheckChannelName.Enabled = cBoxChannelName.Enabled;
+            };
 
             this.Text = SharedMem.AppName + " - Setting";
             //-----------------------------------------------------------------
@@ -134,6 +146,12 @@ namespace Will_Weibo_Tencent
         {
             get { return m_userName; }
         }
+
+        private string m_channelName;
+        public string ChannelName
+        {
+            get { return m_channelName; }
+        }
         #endregion
 
         private void FrmRequestSetting_Load(object sender, EventArgs e)
@@ -151,7 +169,7 @@ namespace Will_Weibo_Tencent
             else if (strFlag == RequestKind.SpecifiedPersonWeibo)
                 GroupBoxEnabled(false, true, true, true, true);
             else if (strFlag == RequestKind.TypeChannel)
-                GroupBoxEnabled(false, true, true, false);
+                GroupBoxEnabled(false, true, true, true, false, true);
             else
                 MsgResult.WriteLine("Invalid parameter. strFlag:", strFlag);
         }
@@ -164,7 +182,7 @@ namespace Will_Weibo_Tencent
         /// <param name="b3">Content Filter</param>
         /// <param name="b4">Other group</param>
         /// <param name="b5">Username in "Other" group</param>
-        private void GroupBoxEnabled(bool b1, bool b2, bool b3, bool b4, bool b5 = false)
+        private void GroupBoxEnabled(bool b1, bool b2, bool b3, bool b4, bool b5 = false, bool b6 = false)
         {
             gBoxTypeFilter1.Enabled = b1;
             gBoxTypeFilter2.Enabled = b2;
@@ -172,6 +190,7 @@ namespace Will_Weibo_Tencent
             gBoxOthers.Enabled = b4;
 
             this.txtUserName.Enabled = b4 && b5;
+            this.cBoxChannelName.Enabled = b4 && b6;
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -257,11 +276,13 @@ namespace Will_Weibo_Tencent
             {
                 this.m_requestLength = Convert.ToInt32(mTxtRequestLen.Text);
                 this.m_userName = txtUserName.Text.ToString().Trim();
+                this.m_channelName = GetChannelName();
             }
             else
             {
                 this.m_requestLength = 20;
                 this.m_userName = "xingheng907"; // Hurray! My name must be default!
+                this.m_channelName = "";            // Main page
             }
             //-----------------------------------------------------------------
 
@@ -291,7 +312,7 @@ namespace Will_Weibo_Tencent
                 mTxtRequestLen.Text = maxLength.ToString();
         }
 
-        private async void btnCheckName_Click(object sender, EventArgs e)
+        private async void btnCheckUserName_Click(object sender, EventArgs e)
         {
             Request requestForCheckName = new Request(TimelineKind.SpecifiedPersonWeibo);
 
@@ -329,6 +350,51 @@ namespace Will_Weibo_Tencent
         LFailed:
             MessageBox.Show("It seems the user name is bad, please check it.\r\n\r\n" + err.GetErrorString(), "Check Name");
             goto LEnd;
+        }
+
+        private async void btnCheckChannelName_Click(object sender, EventArgs e)
+        {
+            Request requestForCheckName = new Request(TimelineKind.TypeChannel);
+
+            // Save the original value for the following members at first.
+            string tmp_ChannelName = RequestArgs.channelName;
+            int tmp_RequestLen = RequestArgs.requestLength;
+
+            RequestArgs.channelName = GetChannelName();
+            RequestArgs.requestLength = 1;  // We just want to check the return error, this is not important.
+
+            requestForCheckName.GenerateRequestString();
+
+            WeiboInfo[] list = await requestForCheckName.SendRequest();
+            WeiboErrorCode err = requestForCheckName.LastErrCode;
+
+            if (list != null && list.Length > 0 && list.Length <= RequestArgs.requestLength)
+                goto LSuccess;
+            else
+            {
+                if (err.FSuccess())
+                    goto LSuccess;
+                else
+                    goto LFailed;
+            }
+
+        LEnd:
+            RequestArgs.channelName = tmp_ChannelName;
+            RequestArgs.requestLength = tmp_RequestLen;
+            return;
+
+        LSuccess:
+            MessageBox.Show("The channel name looks good!", "Check Name");
+            goto LEnd;
+
+        LFailed:
+            MessageBox.Show("It seems the channel name is bad, please check it.\r\n\r\n" + err.GetErrorString(), "Check Name");
+            goto LEnd;
+        }
+
+        private string GetChannelName()
+        {
+            return cBoxChannelName.SelectedIndex == 0 ? "" : cBoxChannelName.Text.ToString().Trim();
         }
     }
 }

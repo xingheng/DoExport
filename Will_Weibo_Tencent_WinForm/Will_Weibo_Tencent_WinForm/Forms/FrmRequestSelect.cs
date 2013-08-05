@@ -113,6 +113,7 @@ namespace Will_Weibo_Tencent
             RequestArgs.weiboType = setting.weibo_type;
             RequestArgs.contentType = setting.content_type;
             RequestArgs.userName = setting.UserName;
+            RequestArgs.channelName = setting.ChannelName;
             RequestArgs.requestLength = setting.requestLength;
         }
     }

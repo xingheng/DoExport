@@ -34,6 +34,7 @@ namespace Will_Weibo_Tencent
         public static int weiboType = 0;
         public static int contentType = 0;
         public static string userName = "xingheng907";
+        public static string channelName = "";
         public static int requestLength = 20;
 
         public static TimelineKind ConvertRequestKindString2TimeLineKind(string kindArgs)
@@ -192,7 +193,7 @@ namespace Will_Weibo_Tencent
                     {
                         strRequest = "http://open.t.qq.com/api/channel/timeline?" +
                             "format=xml" +
-                            "&name=美女" +
+                            "&name=" + RequestArgs.channelName +
                             "&id=" +
                             "&reqnum=" + RequestArgs.requestLength.ToString() +
                             "&content_type=" + RequestArgs.contentType.ToString() +

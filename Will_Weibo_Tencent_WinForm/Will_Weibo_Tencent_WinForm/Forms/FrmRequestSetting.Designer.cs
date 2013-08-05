@@ -54,7 +54,10 @@
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.mTxtRequestLen = new System.Windows.Forms.MaskedTextBox();
             this.gBoxOthers = new System.Windows.Forms.GroupBox();
-            this.btnCheckName = new System.Windows.Forms.Button();
+            this.cBoxChannelName = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnCheckUserName = new System.Windows.Forms.Button();
+            this.btnCheckChannelName = new System.Windows.Forms.Button();
             this.gBoxTypeFilter1.SuspendLayout();
             this.gBoxContentFilter.SuspendLayout();
             this.gBoxTypeFilter2.SuspendLayout();
@@ -64,7 +67,7 @@
             // btnOK
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnOK.Location = new System.Drawing.Point(120, 309);
+            this.btnOK.Location = new System.Drawing.Point(120, 344);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(88, 35);
             this.btnOK.TabIndex = 1;
@@ -118,7 +121,7 @@
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(233, 309);
+            this.btnCancel.Location = new System.Drawing.Point(233, 344);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(88, 35);
             this.btnCancel.TabIndex = 2;
@@ -290,7 +293,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 56);
+            this.label2.Location = new System.Drawing.Point(42, 59);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 12);
             this.label2.TabIndex = 8;
@@ -324,28 +327,59 @@
             // 
             // gBoxOthers
             // 
-            this.gBoxOthers.Controls.Add(this.btnCheckName);
+            this.gBoxOthers.Controls.Add(this.btnCheckChannelName);
+            this.gBoxOthers.Controls.Add(this.cBoxChannelName);
+            this.gBoxOthers.Controls.Add(this.label3);
+            this.gBoxOthers.Controls.Add(this.btnCheckUserName);
             this.gBoxOthers.Controls.Add(this.mTxtRequestLen);
             this.gBoxOthers.Controls.Add(this.txtUserName);
             this.gBoxOthers.Controls.Add(this.label1);
             this.gBoxOthers.Controls.Add(this.label2);
             this.gBoxOthers.Location = new System.Drawing.Point(12, 208);
             this.gBoxOthers.Name = "gBoxOthers";
-            this.gBoxOthers.Size = new System.Drawing.Size(416, 87);
+            this.gBoxOthers.Size = new System.Drawing.Size(416, 119);
             this.gBoxOthers.TabIndex = 11;
             this.gBoxOthers.TabStop = false;
             this.gBoxOthers.Text = "Others";
             // 
-            // btnCheckName
+            // cBoxChannelName
             // 
-            this.btnCheckName.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCheckName.Location = new System.Drawing.Point(301, 54);
-            this.btnCheckName.Name = "btnCheckName";
-            this.btnCheckName.Size = new System.Drawing.Size(75, 23);
-            this.btnCheckName.TabIndex = 11;
-            this.btnCheckName.Text = "Check Name";
-            this.btnCheckName.UseVisualStyleBackColor = true;
-            this.btnCheckName.Click += new System.EventHandler(this.btnCheckName_Click);
+            this.cBoxChannelName.FormattingEnabled = true;
+            this.cBoxChannelName.Location = new System.Drawing.Point(108, 89);
+            this.cBoxChannelName.Name = "cBoxChannelName";
+            this.cBoxChannelName.Size = new System.Drawing.Size(88, 20);
+            this.cBoxChannelName.TabIndex = 13;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(24, 92);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 12);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Channel Name";
+            // 
+            // btnCheckUserName
+            // 
+            this.btnCheckUserName.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCheckUserName.Location = new System.Drawing.Point(301, 54);
+            this.btnCheckUserName.Name = "btnCheckUserName";
+            this.btnCheckUserName.Size = new System.Drawing.Size(75, 23);
+            this.btnCheckUserName.TabIndex = 11;
+            this.btnCheckUserName.Text = "Check Name";
+            this.btnCheckUserName.UseVisualStyleBackColor = true;
+            this.btnCheckUserName.Click += new System.EventHandler(this.btnCheckUserName_Click);
+            // 
+            // btnCheckChannelName
+            // 
+            this.btnCheckChannelName.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCheckChannelName.Location = new System.Drawing.Point(210, 87);
+            this.btnCheckChannelName.Name = "btnCheckChannelName";
+            this.btnCheckChannelName.Size = new System.Drawing.Size(75, 23);
+            this.btnCheckChannelName.TabIndex = 14;
+            this.btnCheckChannelName.Text = "Check Name";
+            this.btnCheckChannelName.UseVisualStyleBackColor = true;
+            this.btnCheckChannelName.Click += new System.EventHandler(this.btnCheckChannelName_Click);
             // 
             // FrmRequestSetting
             // 
@@ -353,7 +387,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(441, 354);
+            this.ClientSize = new System.Drawing.Size(441, 389);
             this.Controls.Add(this.gBoxOthers);
             this.Controls.Add(this.gBoxTypeFilter2);
             this.Controls.Add(this.gBoxContentFilter);
@@ -406,7 +440,10 @@
         private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.MaskedTextBox mTxtRequestLen;
         private System.Windows.Forms.GroupBox gBoxOthers;
-        private System.Windows.Forms.Button btnCheckName;
+        private System.Windows.Forms.Button btnCheckUserName;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cBoxChannelName;
+        private System.Windows.Forms.Button btnCheckChannelName;
 
     }
 }
