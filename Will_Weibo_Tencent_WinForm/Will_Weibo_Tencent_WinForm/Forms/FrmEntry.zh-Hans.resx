@@ -117,128 +117,21 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnCommonUserStart.Location" type="System.Drawing.Point, System.Drawing">
-    <value>338, 124</value>
-  </data>
-  <data name="btnCommonUserStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>82, 35</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnCommonUserStart.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
   <data name="btnCommonUserStart.Text" xml:space="preserve">
-    <value>Start</value>
-  </data>
-  <data name="&gt;&gt;btnCommonUserStart.Name" xml:space="preserve">
-    <value>btnCommonUserStart</value>
-  </data>
-  <data name="&gt;&gt;btnCommonUserStart.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnCommonUserStart.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnCommonUserStart.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="llblDevEntry.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="llblDevEntry.Location" type="System.Drawing.Point, System.Drawing">
-    <value>328, 259</value>
-  </data>
-  <data name="llblDevEntry.Size" type="System.Drawing.Size, System.Drawing">
-    <value>113, 12</value>
-  </data>
-  <data name="llblDevEntry.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="llblDevEntry.Text" xml:space="preserve">
-    <value>Developer Entry...</value>
-  </data>
-  <data name="&gt;&gt;llblDevEntry.Name" xml:space="preserve">
-    <value>llblDevEntry</value>
-  </data>
-  <data name="&gt;&gt;llblDevEntry.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;llblDevEntry.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;llblDevEntry.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="lblDescrption.Font" type="System.Drawing.Font, System.Drawing">
-    <value>SimSun, 10pt</value>
-  </data>
-  <data name="lblDescrption.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 15</value>
-  </data>
-  <data name="lblDescrption.Size" type="System.Drawing.Size, System.Drawing">
-    <value>292, 242</value>
-  </data>
-  <data name="lblDescrption.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="lblDescrption.Text" xml:space="preserve">
-    <value>Welcome, users!
-....</value>
-  </data>
-  <data name="&gt;&gt;lblDescrption.Name" xml:space="preserve">
-    <value>lblDescrption</value>
-  </data>
-  <data name="&gt;&gt;lblDescrption.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblDescrption.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;lblDescrption.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 11</value>
-  </data>
-  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>304, 260</value>
-  </data>
-  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 12</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>447, 290</value>
+    <value>开始</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
+  <data name="llblDevEntry.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>FrmEntry</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="llblDevEntry.Location" type="System.Drawing.Point, System.Drawing">
+    <value>355, 256</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>FrmEntry</value>
+  <data name="llblDevEntry.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 12</value>
   </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="llblDevEntry.Text" xml:space="preserve">
+    <value>开发者入口</value>
   </data>
 </root>
