@@ -281,6 +281,14 @@ namespace Will_Weibo_Tencent
             {
                 lblSubWeiboUserNick.Text = info.nick;
                 rTxtSubWeiboContent.Text = info.origtext.Trim('\r', '\n', ' ');
+                if (String.IsNullOrEmpty(rTxtSubWeiboContent.Text))
+                {
+#if !LOCALIZED_DATA_FOR_DEBUG
+                    rTxtSubWeiboContent.Text = "The original content has been deleted.";
+#else
+                    rTxtSubWeiboContent.Text = "原微博已被删除。";
+#endif
+                }
             }
             else
             {

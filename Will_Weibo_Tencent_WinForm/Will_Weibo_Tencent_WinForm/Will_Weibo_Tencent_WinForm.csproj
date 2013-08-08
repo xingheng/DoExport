@@ -90,12 +90,6 @@
     <Compile Include="Forms\FrmConvertTime.Designer.cs">
       <DependentUpon>FrmConvertTime.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\WeiboRequestSetting.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\WeiboRequestSetting.Designer.cs">
-      <DependentUpon>WeiboRequestSetting.cs</DependentUpon>
-    </Compile>
     <Compile Include="Weibo\RequestArgs.cs" />
     <Compile Include="Utilities\CollectResult.cs" />
     <Compile Include="Forms\FrmEntry.cs">
@@ -219,9 +213,6 @@
     <EmbeddedResource Include="UserControls\WeiboPanel.resx">
       <DependentUpon>WeiboPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\WeiboRequestSetting.resx">
-      <DependentUpon>WeiboRequestSetting.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -255,9 +246,6 @@
     <Content Include="Resources\WeiboFormat.xml" />
     <Content Include="Resources\ReturnValue.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\XMLFile1.xml">
-      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
