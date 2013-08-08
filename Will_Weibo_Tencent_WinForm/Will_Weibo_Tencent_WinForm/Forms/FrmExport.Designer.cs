@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmExport));
             this.btnBrowseTextFile = new System.Windows.Forms.Button();
             this.rTxtResult = new System.Windows.Forms.RichTextBox();
             this.txtTextFilePath = new System.Windows.Forms.TextBox();
@@ -50,9 +51,9 @@
             this.cBoxExportImage = new System.Windows.Forms.CheckBox();
             this.txtImageFilePath = new System.Windows.Forms.TextBox();
             this.tabPageDetails = new System.Windows.Forms.TabPage();
+            this.cBoxDetailedLog = new System.Windows.Forms.CheckBox();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.cBoxDetailedLog = new System.Windows.Forms.CheckBox();
             this.tabControl1.SuspendLayout();
             this.tabPagePreference.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -63,47 +64,32 @@
             // 
             // btnBrowseTextFile
             // 
-            this.btnBrowseTextFile.Location = new System.Drawing.Point(445, 42);
+            resources.ApplyResources(this.btnBrowseTextFile, "btnBrowseTextFile");
             this.btnBrowseTextFile.Name = "btnBrowseTextFile";
-            this.btnBrowseTextFile.Size = new System.Drawing.Size(75, 23);
-            this.btnBrowseTextFile.TabIndex = 0;
-            this.btnBrowseTextFile.Text = "Browse...";
             this.btnBrowseTextFile.UseVisualStyleBackColor = true;
             this.btnBrowseTextFile.Click += new System.EventHandler(this.btnBrowseTextFile_Click);
             // 
             // rTxtResult
             // 
-            this.rTxtResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rTxtResult.Location = new System.Drawing.Point(3, 3);
+            resources.ApplyResources(this.rTxtResult, "rTxtResult");
             this.rTxtResult.Name = "rTxtResult";
-            this.rTxtResult.Size = new System.Drawing.Size(566, 354);
-            this.rTxtResult.TabIndex = 2;
-            this.rTxtResult.Text = "";
             // 
             // txtTextFilePath
             // 
-            this.txtTextFilePath.Location = new System.Drawing.Point(33, 42);
+            resources.ApplyResources(this.txtTextFilePath, "txtTextFilePath");
             this.txtTextFilePath.Name = "txtTextFilePath";
-            this.txtTextFilePath.Size = new System.Drawing.Size(395, 21);
-            this.txtTextFilePath.TabIndex = 3;
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(240, 316);
+            resources.ApplyResources(this.btnExport, "btnExport");
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(93, 34);
-            this.btnExport.TabIndex = 4;
-            this.btnExport.Text = "Export";
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // btnNextPage
             // 
-            this.btnNextPage.Location = new System.Drawing.Point(362, 316);
+            resources.ApplyResources(this.btnNextPage, "btnNextPage");
             this.btnNextPage.Name = "btnNextPage";
-            this.btnNextPage.Size = new System.Drawing.Size(93, 34);
-            this.btnNextPage.TabIndex = 5;
-            this.btnNextPage.Text = "Next Page";
             this.btnNextPage.UseVisualStyleBackColor = true;
             this.btnNextPage.Click += new System.EventHandler(this.btnNextPage_Click);
             // 
@@ -111,11 +97,9 @@
             // 
             this.tabControl1.Controls.Add(this.tabPagePreference);
             this.tabControl1.Controls.Add(this.tabPageDetails);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(580, 386);
-            this.tabControl1.TabIndex = 6;
             this.tabControl1.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControl1_Selecting);
             // 
             // tabPagePreference
@@ -125,12 +109,8 @@
             this.tabPagePreference.Controls.Add(this.groupBox1);
             this.tabPagePreference.Controls.Add(this.btnNextPage);
             this.tabPagePreference.Controls.Add(this.btnExport);
-            this.tabPagePreference.Location = new System.Drawing.Point(4, 22);
+            resources.ApplyResources(this.tabPagePreference, "tabPagePreference");
             this.tabPagePreference.Name = "tabPagePreference";
-            this.tabPagePreference.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPagePreference.Size = new System.Drawing.Size(572, 360);
-            this.tabPagePreference.TabIndex = 0;
-            this.tabPagePreference.Text = "Preferences";
             this.tabPagePreference.UseVisualStyleBackColor = true;
             // 
             // groupBox3
@@ -141,71 +121,46 @@
             this.groupBox3.Controls.Add(this.mTxtTimeStamp);
             this.groupBox3.Controls.Add(this.rBtnEndTime);
             this.groupBox3.Controls.Add(this.rBtnStartTime);
-            this.groupBox3.Location = new System.Drawing.Point(15, 192);
+            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(541, 102);
-            this.groupBox3.TabIndex = 10;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Export Timestamp";
             // 
             // btnDeselectAll
             // 
-            this.btnDeselectAll.Location = new System.Drawing.Point(16, 65);
+            resources.ApplyResources(this.btnDeselectAll, "btnDeselectAll");
             this.btnDeselectAll.Name = "btnDeselectAll";
-            this.btnDeselectAll.Size = new System.Drawing.Size(93, 23);
-            this.btnDeselectAll.TabIndex = 6;
-            this.btnDeselectAll.Text = "Deselect All";
             this.btnDeselectAll.UseVisualStyleBackColor = true;
             this.btnDeselectAll.Click += new System.EventHandler(this.btnDeselectAll_Click);
             // 
             // btnConvert
             // 
-            this.btnConvert.Location = new System.Drawing.Point(445, 65);
+            resources.ApplyResources(this.btnConvert, "btnConvert");
             this.btnConvert.Name = "btnConvert";
-            this.btnConvert.Size = new System.Drawing.Size(75, 23);
-            this.btnConvert.TabIndex = 5;
-            this.btnConvert.Text = "Convert";
             this.btnConvert.UseVisualStyleBackColor = true;
             this.btnConvert.Click += new System.EventHandler(this.btnConvert_Click);
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(223, 70);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 12);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Time Stamp";
             // 
             // mTxtTimeStamp
             // 
-            this.mTxtTimeStamp.Location = new System.Drawing.Point(295, 67);
-            this.mTxtTimeStamp.Mask = "99999999999";
+            resources.ApplyResources(this.mTxtTimeStamp, "mTxtTimeStamp");
             this.mTxtTimeStamp.Name = "mTxtTimeStamp";
-            this.mTxtTimeStamp.Size = new System.Drawing.Size(133, 21);
-            this.mTxtTimeStamp.TabIndex = 2;
-            this.mTxtTimeStamp.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // rBtnEndTime
             // 
-            this.rBtnEndTime.AutoSize = true;
-            this.rBtnEndTime.Location = new System.Drawing.Point(16, 42);
+            resources.ApplyResources(this.rBtnEndTime, "rBtnEndTime");
             this.rBtnEndTime.Name = "rBtnEndTime";
-            this.rBtnEndTime.Size = new System.Drawing.Size(203, 16);
-            this.rBtnEndTime.TabIndex = 1;
             this.rBtnEndTime.TabStop = true;
-            this.rBtnEndTime.Text = "End to the specified timestamp";
             this.rBtnEndTime.UseVisualStyleBackColor = true;
             // 
             // rBtnStartTime
             // 
-            this.rBtnStartTime.AutoSize = true;
-            this.rBtnStartTime.Location = new System.Drawing.Point(16, 20);
+            resources.ApplyResources(this.rBtnStartTime, "rBtnStartTime");
             this.rBtnStartTime.Name = "rBtnStartTime";
-            this.rBtnStartTime.Size = new System.Drawing.Size(227, 16);
-            this.rBtnStartTime.TabIndex = 0;
             this.rBtnStartTime.TabStop = true;
-            this.rBtnStartTime.Text = "Start from the specified timestamp";
             this.rBtnStartTime.UseVisualStyleBackColor = true;
             // 
             // groupBox2
@@ -213,21 +168,14 @@
             this.groupBox2.Controls.Add(this.cBoxExportText);
             this.groupBox2.Controls.Add(this.txtTextFilePath);
             this.groupBox2.Controls.Add(this.btnBrowseTextFile);
-            this.groupBox2.Location = new System.Drawing.Point(15, 19);
+            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(541, 80);
-            this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "For Text";
             // 
             // cBoxExportText
             // 
-            this.cBoxExportText.AutoSize = true;
-            this.cBoxExportText.Location = new System.Drawing.Point(16, 20);
+            resources.ApplyResources(this.cBoxExportText, "cBoxExportText");
             this.cBoxExportText.Name = "cBoxExportText";
-            this.cBoxExportText.Size = new System.Drawing.Size(108, 16);
-            this.cBoxExportText.TabIndex = 9;
-            this.cBoxExportText.Text = "Export Text To";
             this.cBoxExportText.UseVisualStyleBackColor = true;
             // 
             // groupBox1
@@ -235,85 +183,58 @@
             this.groupBox1.Controls.Add(this.btnBrowseImageFile);
             this.groupBox1.Controls.Add(this.cBoxExportImage);
             this.groupBox1.Controls.Add(this.txtImageFilePath);
-            this.groupBox1.Location = new System.Drawing.Point(15, 105);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(541, 81);
-            this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "For Image";
             // 
             // btnBrowseImageFile
             // 
-            this.btnBrowseImageFile.Location = new System.Drawing.Point(445, 40);
+            resources.ApplyResources(this.btnBrowseImageFile, "btnBrowseImageFile");
             this.btnBrowseImageFile.Name = "btnBrowseImageFile";
-            this.btnBrowseImageFile.Size = new System.Drawing.Size(75, 23);
-            this.btnBrowseImageFile.TabIndex = 7;
-            this.btnBrowseImageFile.Text = "Browse...";
             this.btnBrowseImageFile.UseVisualStyleBackColor = true;
             this.btnBrowseImageFile.Click += new System.EventHandler(this.btnBrowseImageFile_Click);
             // 
             // cBoxExportImage
             // 
-            this.cBoxExportImage.AutoSize = true;
-            this.cBoxExportImage.Location = new System.Drawing.Point(16, 20);
+            resources.ApplyResources(this.cBoxExportImage, "cBoxExportImage");
             this.cBoxExportImage.Name = "cBoxExportImage";
-            this.cBoxExportImage.Size = new System.Drawing.Size(114, 16);
-            this.cBoxExportImage.TabIndex = 0;
-            this.cBoxExportImage.Text = "Export Image To";
             this.cBoxExportImage.UseVisualStyleBackColor = true;
             // 
             // txtImageFilePath
             // 
-            this.txtImageFilePath.Location = new System.Drawing.Point(33, 42);
+            resources.ApplyResources(this.txtImageFilePath, "txtImageFilePath");
             this.txtImageFilePath.Name = "txtImageFilePath";
-            this.txtImageFilePath.Size = new System.Drawing.Size(395, 21);
-            this.txtImageFilePath.TabIndex = 8;
             // 
             // tabPageDetails
             // 
             this.tabPageDetails.Controls.Add(this.cBoxDetailedLog);
             this.tabPageDetails.Controls.Add(this.BtnCancel);
             this.tabPageDetails.Controls.Add(this.rTxtResult);
-            this.tabPageDetails.Location = new System.Drawing.Point(4, 22);
+            resources.ApplyResources(this.tabPageDetails, "tabPageDetails");
             this.tabPageDetails.Name = "tabPageDetails";
-            this.tabPageDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDetails.Size = new System.Drawing.Size(572, 360);
-            this.tabPageDetails.TabIndex = 1;
-            this.tabPageDetails.Text = "Details";
             this.tabPageDetails.UseVisualStyleBackColor = true;
-            // 
-            // BtnCancel
-            // 
-            this.BtnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnCancel.Location = new System.Drawing.Point(451, 285);
-            this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(74, 30);
-            this.BtnCancel.TabIndex = 3;
-            this.BtnCancel.Text = "Cancel";
-            this.BtnCancel.UseVisualStyleBackColor = true;
-            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // cBoxDetailedLog
             // 
-            this.cBoxDetailedLog.AutoSize = true;
-            this.cBoxDetailedLog.Location = new System.Drawing.Point(363, 321);
+            resources.ApplyResources(this.cBoxDetailedLog, "cBoxDetailedLog");
             this.cBoxDetailedLog.Name = "cBoxDetailedLog";
-            this.cBoxDetailedLog.Size = new System.Drawing.Size(162, 16);
-            this.cBoxDetailedLog.TabIndex = 4;
-            this.cBoxDetailedLog.Text = "Enable the detailed log";
             this.cBoxDetailedLog.UseVisualStyleBackColor = true;
+            // 
+            // BtnCancel
+            // 
+            resources.ApplyResources(this.BtnCancel, "BtnCancel");
+            this.BtnCancel.Name = "BtnCancel";
+            this.BtnCancel.UseVisualStyleBackColor = true;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // FrmExport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(604, 414);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "FrmExport";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Export Weibo";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmExport_FormClosing);
             this.Load += new System.EventHandler(this.FrmExport_Load);
             this.tabControl1.ResumeLayout(false);

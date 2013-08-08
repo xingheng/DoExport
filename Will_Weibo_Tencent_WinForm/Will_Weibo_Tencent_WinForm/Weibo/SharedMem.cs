@@ -16,10 +16,30 @@ namespace Will_Weibo_Tencent
 
         public static string redirectURL = "http://xinghenghan.blog.163.com";
 
-        private static readonly string appName = "Weibo Export Tool";
+        private static string appName;
         public static string AppName
         {
-            get { return appName; }
+            get
+            {
+                if (string.IsNullOrEmpty(appName))
+                {
+                    if (IsChineseSimpleCulture())
+                        appName = "微博导出工具";
+                    else
+                        appName = "Weibo Export Tool";
+                }
+                return appName;
+            }
+        }
+
+        private static string currentCulture;
+        public static bool IsChineseSimpleCulture()
+        {
+            if (string.IsNullOrEmpty(currentCulture))
+            {
+                currentCulture = System.Globalization.CultureInfo.CurrentCulture.Name.ToLower();
+            }
+            return (currentCulture == "zh-cn");
         }
     }
 }

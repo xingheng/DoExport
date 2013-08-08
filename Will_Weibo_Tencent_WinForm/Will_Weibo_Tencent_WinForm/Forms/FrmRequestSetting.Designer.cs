@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRequestSetting));
             this.btnOK = new System.Windows.Forms.Button();
             this.checkBox1Original = new System.Windows.Forms.CheckBox();
             this.checkBox1Repost = new System.Windows.Forms.CheckBox();
@@ -54,10 +55,10 @@
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.mTxtRequestLen = new System.Windows.Forms.MaskedTextBox();
             this.gBoxOthers = new System.Windows.Forms.GroupBox();
+            this.btnCheckChannelName = new System.Windows.Forms.Button();
             this.cBoxChannelName = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnCheckUserName = new System.Windows.Forms.Button();
-            this.btnCheckChannelName = new System.Windows.Forms.Button();
             this.gBoxTypeFilter1.SuspendLayout();
             this.gBoxContentFilter.SuspendLayout();
             this.gBoxTypeFilter2.SuspendLayout();
@@ -66,216 +67,139 @@
             // 
             // btnOK
             // 
-            this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnOK.Location = new System.Drawing.Point(120, 344);
+            resources.ApplyResources(this.btnOK, "btnOK");
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(88, 35);
-            this.btnOK.TabIndex = 1;
-            this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // checkBox1Original
             // 
-            this.checkBox1Original.AutoSize = true;
-            this.checkBox1Original.Location = new System.Drawing.Point(105, 24);
+            resources.ApplyResources(this.checkBox1Original, "checkBox1Original");
             this.checkBox1Original.Name = "checkBox1Original";
-            this.checkBox1Original.Size = new System.Drawing.Size(48, 16);
-            this.checkBox1Original.TabIndex = 0;
-            this.checkBox1Original.Text = "原创";
             this.checkBox1Original.UseVisualStyleBackColor = true;
             // 
             // checkBox1Repost
             // 
-            this.checkBox1Repost.AutoSize = true;
-            this.checkBox1Repost.Location = new System.Drawing.Point(172, 24);
+            resources.ApplyResources(this.checkBox1Repost, "checkBox1Repost");
             this.checkBox1Repost.Name = "checkBox1Repost";
-            this.checkBox1Repost.Size = new System.Drawing.Size(48, 16);
-            this.checkBox1Repost.TabIndex = 1;
-            this.checkBox1Repost.Text = "转播";
             this.checkBox1Repost.UseVisualStyleBackColor = true;
             // 
             // checkBox1AllType
             // 
-            this.checkBox1AllType.AutoSize = true;
-            this.checkBox1AllType.Location = new System.Drawing.Point(14, 24);
+            resources.ApplyResources(this.checkBox1AllType, "checkBox1AllType");
             this.checkBox1AllType.Name = "checkBox1AllType";
-            this.checkBox1AllType.Size = new System.Drawing.Size(72, 16);
-            this.checkBox1AllType.TabIndex = 2;
-            this.checkBox1AllType.Text = "所有类型";
             this.checkBox1AllType.UseVisualStyleBackColor = true;
             // 
             // gBoxTypeFilter1
             // 
+            resources.ApplyResources(this.gBoxTypeFilter1, "gBoxTypeFilter1");
             this.gBoxTypeFilter1.Controls.Add(this.checkBox1AllType);
             this.gBoxTypeFilter1.Controls.Add(this.checkBox1Repost);
             this.gBoxTypeFilter1.Controls.Add(this.checkBox1Original);
-            this.gBoxTypeFilter1.Location = new System.Drawing.Point(12, 12);
             this.gBoxTypeFilter1.Name = "gBoxTypeFilter1";
-            this.gBoxTypeFilter1.Size = new System.Drawing.Size(416, 56);
-            this.gBoxTypeFilter1.TabIndex = 0;
             this.gBoxTypeFilter1.TabStop = false;
-            this.gBoxTypeFilter1.Text = "Type Filter 1";
             // 
             // btnCancel
             // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            resources.ApplyResources(this.btnCancel, "btnCancel");
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(233, 344);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(88, 35);
-            this.btnCancel.TabIndex = 2;
-            this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // checkBoxText
             // 
-            this.checkBoxText.AutoSize = true;
-            this.checkBoxText.Location = new System.Drawing.Point(105, 17);
+            resources.ApplyResources(this.checkBoxText, "checkBoxText");
             this.checkBoxText.Name = "checkBoxText";
-            this.checkBoxText.Size = new System.Drawing.Size(48, 16);
-            this.checkBoxText.TabIndex = 0;
-            this.checkBoxText.Text = "文本";
             this.checkBoxText.UseVisualStyleBackColor = true;
             // 
             // checkBoxLink
             // 
-            this.checkBoxLink.AutoSize = true;
-            this.checkBoxLink.Location = new System.Drawing.Point(172, 17);
+            resources.ApplyResources(this.checkBoxLink, "checkBoxLink");
             this.checkBoxLink.Name = "checkBoxLink";
-            this.checkBoxLink.Size = new System.Drawing.Size(48, 16);
-            this.checkBoxLink.TabIndex = 4;
-            this.checkBoxLink.Text = "链接";
             this.checkBoxLink.UseVisualStyleBackColor = true;
             // 
             // checkBoxImage
             // 
-            this.checkBoxImage.AutoSize = true;
-            this.checkBoxImage.Location = new System.Drawing.Point(233, 17);
+            resources.ApplyResources(this.checkBoxImage, "checkBoxImage");
             this.checkBoxImage.Name = "checkBoxImage";
-            this.checkBoxImage.Size = new System.Drawing.Size(48, 16);
-            this.checkBoxImage.TabIndex = 5;
-            this.checkBoxImage.Text = "图片";
             this.checkBoxImage.UseVisualStyleBackColor = true;
             // 
             // checkBoxVideo
             // 
-            this.checkBoxVideo.AutoSize = true;
-            this.checkBoxVideo.Location = new System.Drawing.Point(287, 17);
+            resources.ApplyResources(this.checkBoxVideo, "checkBoxVideo");
             this.checkBoxVideo.Name = "checkBoxVideo";
-            this.checkBoxVideo.Size = new System.Drawing.Size(48, 16);
-            this.checkBoxVideo.TabIndex = 6;
-            this.checkBoxVideo.Text = "视频";
             this.checkBoxVideo.UseVisualStyleBackColor = true;
             // 
             // checkBoxAudio
             // 
-            this.checkBoxAudio.AutoSize = true;
-            this.checkBoxAudio.Location = new System.Drawing.Point(350, 17);
+            resources.ApplyResources(this.checkBoxAudio, "checkBoxAudio");
             this.checkBoxAudio.Name = "checkBoxAudio";
-            this.checkBoxAudio.Size = new System.Drawing.Size(48, 16);
-            this.checkBoxAudio.TabIndex = 7;
-            this.checkBoxAudio.Text = "音频";
             this.checkBoxAudio.UseVisualStyleBackColor = true;
             // 
             // checkBoxAllContents
             // 
-            this.checkBoxAllContents.AutoSize = true;
-            this.checkBoxAllContents.Location = new System.Drawing.Point(14, 17);
+            resources.ApplyResources(this.checkBoxAllContents, "checkBoxAllContents");
             this.checkBoxAllContents.Name = "checkBoxAllContents";
-            this.checkBoxAllContents.Size = new System.Drawing.Size(72, 16);
-            this.checkBoxAllContents.TabIndex = 8;
-            this.checkBoxAllContents.Text = "所有类型";
             this.checkBoxAllContents.UseVisualStyleBackColor = true;
             // 
             // gBoxContentFilter
             // 
+            resources.ApplyResources(this.gBoxContentFilter, "gBoxContentFilter");
             this.gBoxContentFilter.Controls.Add(this.checkBoxAllContents);
             this.gBoxContentFilter.Controls.Add(this.checkBoxAudio);
             this.gBoxContentFilter.Controls.Add(this.checkBoxVideo);
             this.gBoxContentFilter.Controls.Add(this.checkBoxImage);
             this.gBoxContentFilter.Controls.Add(this.checkBoxLink);
             this.gBoxContentFilter.Controls.Add(this.checkBoxText);
-            this.gBoxContentFilter.Location = new System.Drawing.Point(12, 151);
             this.gBoxContentFilter.Name = "gBoxContentFilter";
-            this.gBoxContentFilter.Size = new System.Drawing.Size(416, 51);
-            this.gBoxContentFilter.TabIndex = 6;
             this.gBoxContentFilter.TabStop = false;
-            this.gBoxContentFilter.Text = "Content Filter";
             // 
             // checkBox2Original
             // 
-            this.checkBox2Original.AutoSize = true;
-            this.checkBox2Original.Location = new System.Drawing.Point(105, 20);
+            resources.ApplyResources(this.checkBox2Original, "checkBox2Original");
             this.checkBox2Original.Name = "checkBox2Original";
-            this.checkBox2Original.Size = new System.Drawing.Size(48, 16);
-            this.checkBox2Original.TabIndex = 0;
-            this.checkBox2Original.Text = "原创";
             this.checkBox2Original.UseVisualStyleBackColor = true;
             // 
             // checkBox2Repost
             // 
-            this.checkBox2Repost.AutoSize = true;
-            this.checkBox2Repost.Location = new System.Drawing.Point(172, 20);
+            resources.ApplyResources(this.checkBox2Repost, "checkBox2Repost");
             this.checkBox2Repost.Name = "checkBox2Repost";
-            this.checkBox2Repost.Size = new System.Drawing.Size(48, 16);
-            this.checkBox2Repost.TabIndex = 1;
-            this.checkBox2Repost.Text = "转播";
             this.checkBox2Repost.UseVisualStyleBackColor = true;
             // 
             // checkBox2Reply
             // 
-            this.checkBox2Reply.AutoSize = true;
-            this.checkBox2Reply.Location = new System.Drawing.Point(233, 20);
+            resources.ApplyResources(this.checkBox2Reply, "checkBox2Reply");
             this.checkBox2Reply.Name = "checkBox2Reply";
-            this.checkBox2Reply.Size = new System.Drawing.Size(48, 16);
-            this.checkBox2Reply.TabIndex = 2;
-            this.checkBox2Reply.Text = "回复";
             this.checkBox2Reply.UseVisualStyleBackColor = true;
             // 
             // checkBox2Mention
             // 
-            this.checkBox2Mention.AutoSize = true;
-            this.checkBox2Mention.Location = new System.Drawing.Point(14, 42);
+            resources.ApplyResources(this.checkBox2Mention, "checkBox2Mention");
             this.checkBox2Mention.Name = "checkBox2Mention";
-            this.checkBox2Mention.Size = new System.Drawing.Size(48, 16);
-            this.checkBox2Mention.TabIndex = 3;
-            this.checkBox2Mention.Text = "提及";
             this.checkBox2Mention.UseVisualStyleBackColor = true;
             // 
             // checkBox2ReplyNull
             // 
-            this.checkBox2ReplyNull.AutoSize = true;
-            this.checkBox2ReplyNull.Location = new System.Drawing.Point(287, 20);
+            resources.ApplyResources(this.checkBox2ReplyNull, "checkBox2ReplyNull");
             this.checkBox2ReplyNull.Name = "checkBox2ReplyNull";
-            this.checkBox2ReplyNull.Size = new System.Drawing.Size(60, 16);
-            this.checkBox2ReplyNull.TabIndex = 4;
-            this.checkBox2ReplyNull.Text = "空回复";
             this.checkBox2ReplyNull.UseVisualStyleBackColor = true;
             // 
             // checkBox2Comment
             // 
-            this.checkBox2Comment.AutoSize = true;
-            this.checkBox2Comment.Location = new System.Drawing.Point(105, 42);
+            resources.ApplyResources(this.checkBox2Comment, "checkBox2Comment");
             this.checkBox2Comment.Name = "checkBox2Comment";
-            this.checkBox2Comment.Size = new System.Drawing.Size(48, 16);
-            this.checkBox2Comment.TabIndex = 5;
-            this.checkBox2Comment.Text = "评论";
             this.checkBox2Comment.UseVisualStyleBackColor = true;
             // 
             // checkBox2AllType
             // 
-            this.checkBox2AllType.AutoSize = true;
-            this.checkBox2AllType.Location = new System.Drawing.Point(14, 20);
+            resources.ApplyResources(this.checkBox2AllType, "checkBox2AllType");
             this.checkBox2AllType.Name = "checkBox2AllType";
-            this.checkBox2AllType.Size = new System.Drawing.Size(72, 16);
-            this.checkBox2AllType.TabIndex = 6;
-            this.checkBox2AllType.Text = "所有类型";
             this.checkBox2AllType.UseVisualStyleBackColor = true;
             // 
             // gBoxTypeFilter2
             // 
+            resources.ApplyResources(this.gBoxTypeFilter2, "gBoxTypeFilter2");
             this.gBoxTypeFilter2.Controls.Add(this.checkBox2AllType);
             this.gBoxTypeFilter2.Controls.Add(this.checkBox2Comment);
             this.gBoxTypeFilter2.Controls.Add(this.checkBox2ReplyNull);
@@ -283,50 +207,33 @@
             this.gBoxTypeFilter2.Controls.Add(this.checkBox2Reply);
             this.gBoxTypeFilter2.Controls.Add(this.checkBox2Repost);
             this.gBoxTypeFilter2.Controls.Add(this.checkBox2Original);
-            this.gBoxTypeFilter2.Location = new System.Drawing.Point(12, 74);
             this.gBoxTypeFilter2.Name = "gBoxTypeFilter2";
-            this.gBoxTypeFilter2.Size = new System.Drawing.Size(416, 71);
-            this.gBoxTypeFilter2.TabIndex = 1;
             this.gBoxTypeFilter2.TabStop = false;
-            this.gBoxTypeFilter2.Text = "Type Filter 2";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(42, 59);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 12);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "User Name";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 25);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 12);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Request Length";
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(108, 56);
+            resources.ApplyResources(this.txtUserName, "txtUserName");
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(177, 21);
-            this.txtUserName.TabIndex = 9;
             // 
             // mTxtRequestLen
             // 
-            this.mTxtRequestLen.Location = new System.Drawing.Point(108, 22);
-            this.mTxtRequestLen.Mask = "000";
+            resources.ApplyResources(this.mTxtRequestLen, "mTxtRequestLen");
             this.mTxtRequestLen.Name = "mTxtRequestLen";
-            this.mTxtRequestLen.Size = new System.Drawing.Size(61, 21);
-            this.mTxtRequestLen.TabIndex = 10;
-            this.mTxtRequestLen.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mTxtRequestLen.Validated += new System.EventHandler(this.mTxtRequestLen_Validated);
             // 
             // gBoxOthers
             // 
+            resources.ApplyResources(this.gBoxOthers, "gBoxOthers");
             this.gBoxOthers.Controls.Add(this.btnCheckChannelName);
             this.gBoxOthers.Controls.Add(this.cBoxChannelName);
             this.gBoxOthers.Controls.Add(this.label3);
@@ -335,59 +242,40 @@
             this.gBoxOthers.Controls.Add(this.txtUserName);
             this.gBoxOthers.Controls.Add(this.label1);
             this.gBoxOthers.Controls.Add(this.label2);
-            this.gBoxOthers.Location = new System.Drawing.Point(12, 208);
             this.gBoxOthers.Name = "gBoxOthers";
-            this.gBoxOthers.Size = new System.Drawing.Size(416, 119);
-            this.gBoxOthers.TabIndex = 11;
             this.gBoxOthers.TabStop = false;
-            this.gBoxOthers.Text = "Others";
-            // 
-            // cBoxChannelName
-            // 
-            this.cBoxChannelName.FormattingEnabled = true;
-            this.cBoxChannelName.Location = new System.Drawing.Point(108, 89);
-            this.cBoxChannelName.Name = "cBoxChannelName";
-            this.cBoxChannelName.Size = new System.Drawing.Size(88, 20);
-            this.cBoxChannelName.TabIndex = 13;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 92);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 12);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Channel Name";
-            // 
-            // btnCheckUserName
-            // 
-            this.btnCheckUserName.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCheckUserName.Location = new System.Drawing.Point(301, 54);
-            this.btnCheckUserName.Name = "btnCheckUserName";
-            this.btnCheckUserName.Size = new System.Drawing.Size(75, 23);
-            this.btnCheckUserName.TabIndex = 11;
-            this.btnCheckUserName.Text = "Check Name";
-            this.btnCheckUserName.UseVisualStyleBackColor = true;
-            this.btnCheckUserName.Click += new System.EventHandler(this.btnCheckUserName_Click);
             // 
             // btnCheckChannelName
             // 
-            this.btnCheckChannelName.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCheckChannelName.Location = new System.Drawing.Point(210, 87);
+            resources.ApplyResources(this.btnCheckChannelName, "btnCheckChannelName");
             this.btnCheckChannelName.Name = "btnCheckChannelName";
-            this.btnCheckChannelName.Size = new System.Drawing.Size(75, 23);
-            this.btnCheckChannelName.TabIndex = 14;
-            this.btnCheckChannelName.Text = "Check Name";
             this.btnCheckChannelName.UseVisualStyleBackColor = true;
             this.btnCheckChannelName.Click += new System.EventHandler(this.btnCheckChannelName_Click);
+            // 
+            // cBoxChannelName
+            // 
+            resources.ApplyResources(this.cBoxChannelName, "cBoxChannelName");
+            this.cBoxChannelName.FormattingEnabled = true;
+            this.cBoxChannelName.Name = "cBoxChannelName";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
+            // 
+            // btnCheckUserName
+            // 
+            resources.ApplyResources(this.btnCheckUserName, "btnCheckUserName");
+            this.btnCheckUserName.Name = "btnCheckUserName";
+            this.btnCheckUserName.UseVisualStyleBackColor = true;
+            this.btnCheckUserName.Click += new System.EventHandler(this.btnCheckUserName_Click);
             // 
             // FrmRequestSetting
             // 
             this.AcceptButton = this.btnOK;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(441, 389);
             this.Controls.Add(this.gBoxOthers);
             this.Controls.Add(this.gBoxTypeFilter2);
             this.Controls.Add(this.gBoxContentFilter);
@@ -396,8 +284,6 @@
             this.Controls.Add(this.btnOK);
             this.MaximizeBox = false;
             this.Name = "FrmRequestSetting";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmRequestSetting";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmRequestSetting_FormClosing);
             this.Load += new System.EventHandler(this.FrmRequestSetting_Load);
             this.gBoxTypeFilter1.ResumeLayout(false);

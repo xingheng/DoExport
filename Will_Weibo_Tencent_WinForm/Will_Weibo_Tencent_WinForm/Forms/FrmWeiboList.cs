@@ -13,8 +13,16 @@ namespace Will_Weibo_Tencent
         {
             InitializeComponent();
             g_weiboInfoList = list;
+        }
 
-            this.Text = SharedMem.AppName + " - List";
+        protected override void LocalizationForRunTime()
+        {
+            string title = "";
+            if (SharedMem.IsChineseSimpleCulture())
+                title = SharedMem.AppName + " - 微博列表";
+            else
+                title = SharedMem.AppName + " - List";
+            this.Text = title;
         }
 
         private void FrmWeiboList_Load(object sender, EventArgs e)

@@ -65,4 +65,16 @@ namespace Will_Weibo_Tencent
             MsgResult.FreeSingleConsole();
         }
     }
+
+
+    public class Form : System.Windows.Forms.Form
+    {
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            LocalizationForRunTime();   // Localization for ctl should happen after finishing init all the ctrls.
+        }
+
+        virtual protected void LocalizationForRunTime() { }
+    }
 }

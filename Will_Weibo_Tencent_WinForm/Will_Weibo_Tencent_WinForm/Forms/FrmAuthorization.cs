@@ -11,6 +11,16 @@ namespace Will_Weibo_Tencent
             InitializeComponent();
         }
 
+        protected override void LocalizationForRunTime()
+        {
+            string title = "";
+            if (SharedMem.IsChineseSimpleCulture())
+                title = SharedMem.AppName + " - 授权";
+            else
+                title = SharedMem.AppName + " - Authorization";
+            this.Text = title;
+        }
+
         private bool g_fAuthorize = false;
         public bool FAuthorize
         {
@@ -19,8 +29,6 @@ namespace Will_Weibo_Tencent
 
         private void FrmAuthorization_Load(object sender, EventArgs e)
         {
-            this.Text = SharedMem.AppName + " - Authorization";
-
             panelWebBrowser.Dock = DockStyle.Top;
             panelWebBrowser.Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Bottom;
             panelToolBar.Dock = DockStyle.Bottom;

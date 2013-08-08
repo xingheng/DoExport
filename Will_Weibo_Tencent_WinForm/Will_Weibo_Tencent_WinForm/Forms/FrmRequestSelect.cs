@@ -27,6 +27,17 @@ namespace Will_Weibo_Tencent
         public FrmRequestSelect()
         {
             InitializeComponent();
+            LocalizationForRunTime();
+        }
+
+        protected override void LocalizationForRunTime()
+        {
+            string title = "";
+            if (SharedMem.IsChineseSimpleCulture())
+                title = SharedMem.AppName + " - 选择和配置";
+            else
+                title = SharedMem.AppName + " - Select & Config";
+            this.Text = title;
         }
 
         private void FrmReadRequest_Load(object sender, EventArgs e)
@@ -43,8 +54,6 @@ namespace Will_Weibo_Tencent
                 m_requestKind = RequestArgs.ConvertRequestKindString2TimeLineKind(selectedText);
             };
             comboBoxCondition.SelectedIndex = 0;
-
-            this.Text = SharedMem.AppName + " - Select & Config";
         }
 
         private void btnGoExport_Click(object sender, EventArgs e)

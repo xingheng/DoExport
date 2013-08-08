@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAuthorization));
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.panelWebBrowser = new System.Windows.Forms.Panel();
             this.panelToolBar = new System.Windows.Forms.Panel();
@@ -40,74 +41,53 @@
             // 
             // webBrowser1
             // 
-            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            resources.ApplyResources(this.webBrowser1, "webBrowser1");
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(784, 525);
-            this.webBrowser1.TabIndex = 9;
             this.webBrowser1.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser1_DocumentCompleted);
             // 
             // panelWebBrowser
             // 
+            resources.ApplyResources(this.panelWebBrowser, "panelWebBrowser");
             this.panelWebBrowser.Controls.Add(this.webBrowser1);
-            this.panelWebBrowser.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelWebBrowser.Location = new System.Drawing.Point(0, 0);
             this.panelWebBrowser.Name = "panelWebBrowser";
-            this.panelWebBrowser.Size = new System.Drawing.Size(784, 525);
-            this.panelWebBrowser.TabIndex = 10;
             // 
             // panelToolBar
             // 
+            resources.ApplyResources(this.panelToolBar, "panelToolBar");
             this.panelToolBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelToolBar.Controls.Add(this.btnForward);
             this.panelToolBar.Controls.Add(this.btnBack);
             this.panelToolBar.Controls.Add(this.btnHome);
-            this.panelToolBar.Location = new System.Drawing.Point(0, 531);
             this.panelToolBar.Name = "panelToolBar";
-            this.panelToolBar.Size = new System.Drawing.Size(784, 32);
-            this.panelToolBar.TabIndex = 11;
             // 
             // btnForward
             // 
-            this.btnForward.Location = new System.Drawing.Point(141, 3);
+            resources.ApplyResources(this.btnForward, "btnForward");
             this.btnForward.Name = "btnForward";
-            this.btnForward.Size = new System.Drawing.Size(63, 27);
-            this.btnForward.TabIndex = 2;
-            this.btnForward.Text = "Forward";
             this.btnForward.UseVisualStyleBackColor = true;
             this.btnForward.Click += new System.EventHandler(this.btnForward_Click);
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(72, 3);
+            resources.ApplyResources(this.btnBack, "btnBack");
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(63, 27);
-            this.btnBack.TabIndex = 1;
-            this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnHome
             // 
-            this.btnHome.Location = new System.Drawing.Point(3, 3);
+            resources.ApplyResources(this.btnHome, "btnHome");
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(63, 27);
-            this.btnHome.TabIndex = 0;
-            this.btnHome.Text = "Home";
             this.btnHome.UseVisualStyleBackColor = true;
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // FrmAuthorization
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 562);
             this.Controls.Add(this.panelToolBar);
             this.Controls.Add(this.panelWebBrowser);
             this.Name = "FrmAuthorization";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmAuthorization";
             this.Load += new System.EventHandler(this.FrmAuthorization_Load);
             this.panelWebBrowser.ResumeLayout(false);
             this.panelToolBar.ResumeLayout(false);

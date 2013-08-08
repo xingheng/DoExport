@@ -12,6 +12,19 @@ namespace Will_Weibo_Tencent
             InitForCtrls();
         }
 
+        private struct MsgBoxLocalizedString
+        {
+            public string successResult;
+            public string failedResut;
+
+            public void SetLocalizedString(string success, string failed)
+            {
+                successResult = success;
+                failedResut = failed;
+            }
+        }
+        MsgBoxLocalizedString checkUserName, checkChannelName;
+
         private void InitForCtrls()
         {
             //-----------------------------------------------------------------
@@ -88,9 +101,29 @@ namespace Will_Weibo_Tencent
             {
                 btnCheckChannelName.Enabled = cBoxChannelName.Enabled;
             };
-
-            this.Text = SharedMem.AppName + " - Setting";
             //-----------------------------------------------------------------
+        }
+
+        protected override void LocalizationForRunTime()
+        {
+            string title = "";
+            if (SharedMem.IsChineseSimpleCulture())
+            {
+                title = SharedMem.AppName + " - 设置";
+                checkUserName.SetLocalizedString("这个用户名没问题！", 
+                    "你填写的用户名好像有点问题，请检查。");
+                checkChannelName.SetLocalizedString("这个微频道可以有！",
+                    "你填写的微频道名称好像有点问题，请检查。");
+            }
+            else
+            {
+                title = SharedMem.AppName + " - Setting";
+                checkUserName.SetLocalizedString("The user name looks good!",
+                    "It seems the user name is bad, please check it.");
+                checkChannelName.SetLocalizedString("The channel name looks good!",
+                    "It seems the channel name is bad, please check it.");
+            }
+            this.Text = title;
         }
 
         void checkBoxWeiboContent_CheckedChanged(object sender, EventArgs e)
@@ -344,11 +377,11 @@ namespace Will_Weibo_Tencent
             return;
 
         LSuccess:
-            MessageBox.Show("The user name looks good!", "Check Name");
+            MessageBox.Show(checkUserName.successResult, ((Button)sender).Text);
             goto LEnd;
 
         LFailed:
-            MessageBox.Show("It seems the user name is bad, please check it.\r\n\r\n" + err.GetErrorString(), "Check Name");
+            MessageBox.Show(checkUserName.failedResut + "\r\n\r\n" + err.GetErrorString(), ((Button)sender).Text);
             goto LEnd;
         }
 
@@ -384,11 +417,11 @@ namespace Will_Weibo_Tencent
             return;
 
         LSuccess:
-            MessageBox.Show("The channel name looks good!", "Check Name");
+            MessageBox.Show(checkChannelName.successResult, ((Button)sender).Text);
             goto LEnd;
 
         LFailed:
-            MessageBox.Show("It seems the channel name is bad, please check it.\r\n\r\n" + err.GetErrorString(), "Check Name");
+            MessageBox.Show(checkChannelName.failedResut + "\r\n\r\n" + err.GetErrorString(), ((Button)sender).Text);
             goto LEnd;
         }
 

@@ -117,4 +117,391 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="&gt;&gt;btnDownloadImage.Name" xml:space="preserve">
+    <value>btnDownloadImage</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnRequest.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 38</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnRequest.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="btnDownloadImage.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnFrmExport.Location" type="System.Drawing.Point, System.Drawing">
+    <value>353, 66</value>
+  </data>
+  <data name="txtResult.Size" type="System.Drawing.Size, System.Drawing">
+    <value>401, 364</value>
+  </data>
+  <data name="&gt;&gt;btnGenerateImage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnFrmExport.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 38</value>
+  </data>
+  <data name="tabPageListView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>524, 442</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnDownloadImage.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="&gt;&gt;btnRequest.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="listView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="btnDownloadImage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>366, 18</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>Will_Weibo_Tencent.Form, Will_Weibo_Tencent, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;btnSettingForRequest.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnDownloadImage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 51</value>
+  </data>
+  <data name="&gt;&gt;btnDownloadInThread.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblImagePreview.Name" xml:space="preserve">
+    <value>lblImagePreview</value>
+  </data>
+  <data name="tabPageListView.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="btnWeiboList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>233, 66</value>
+  </data>
+  <data name="comboBoxCondition.Size" type="System.Drawing.Size, System.Drawing">
+    <value>302, 20</value>
+  </data>
+  <data name="btnRequest.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 66</value>
+  </data>
+  <data name="&gt;&gt;btnFrmExport.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="txtResult.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;btnDownloadInThread.Name" xml:space="preserve">
+    <value>btnDownloadInThread</value>
+  </data>
+  <data name="&gt;&gt;btnFrmExport.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnWeiboList.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="txtResult.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>446, 17</value>
+  </data>
+  <data name="tabPageListView.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnDownloadInThread.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btnGenerateImage.Name" xml:space="preserve">
+    <value>btnGenerateImage</value>
+  </data>
+  <data name="&gt;&gt;lblImagePreview.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;btnWeiboList.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="lblImagePreview.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="btnGenerateImage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>366, 190</value>
+  </data>
+  <data name="&gt;&gt;listView.Parent" xml:space="preserve">
+    <value>tabPageListView</value>
+  </data>
+  <data name="txtResult.Font" type="System.Drawing.Font, System.Drawing">
+    <value>SimSun, 12pt</value>
+  </data>
+  <data name="&gt;&gt;btnDownloadInThread.Parent" xml:space="preserve">
+    <value>tabPageDataSource</value>
+  </data>
+  <data name="btnDownloadInThread.Text" xml:space="preserve">
+    <value>Download Image in new thread</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>990, 497</value>
+  </data>
+  <data name="tabControl1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="txtResult.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 120</value>
+  </data>
+  <data name="&gt;&gt;listView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageDataSource.Name" xml:space="preserve">
+    <value>tabPageDataSource</value>
+  </data>
+  <data name="btnSettingForRequest.Text" xml:space="preserve">
+    <value>Setting</value>
+  </data>
+  <data name="lblImagePreview.Size" type="System.Drawing.Size, System.Drawing">
+    <value>512, 433</value>
+  </data>
+  <data name="btnDownloadInThread.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnFrmExport.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="btnGenerateImage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 51</value>
+  </data>
+  <data name="&gt;&gt;lblImagePreview.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="txtResult.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left</value>
+  </data>
+  <data name="comboBoxCondition.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 17</value>
+  </data>
+  <data name="tabPageDataSource.Size" type="System.Drawing.Size, System.Drawing">
+    <value>524, 442</value>
+  </data>
+  <data name="&gt;&gt;tabPageListView.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnGenerateImage.Text" xml:space="preserve">
+    <value>Generate Image</value>
+  </data>
+  <data name="&gt;&gt;comboBoxCondition.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPageDataSource.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnWeiboList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 38</value>
+  </data>
+  <data name="tabPageDataSource.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="&gt;&gt;tabPageDataSource.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;lblImagePreview.Parent" xml:space="preserve">
+    <value>tabPageDataSource</value>
+  </data>
+  <data name="&gt;&gt;tabPageListView.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;btnRequest.Name" xml:space="preserve">
+    <value>btnRequest</value>
+  </data>
+  <data name="&gt;&gt;comboBoxCondition.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="btnDownloadImage.Text" xml:space="preserve">
+    <value>Download Image</value>
+  </data>
+  <data name="&gt;&gt;btnRequest.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtResult.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnSettingForRequest.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 20</value>
+  </data>
+  <data name="&gt;&gt;txtResult.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="tabPageDataSource.Text" xml:space="preserve">
+    <value>Image Preview</value>
+  </data>
+  <data name="tabPageListView.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="btnGenerateImage.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="btnWeiboList.Text" xml:space="preserve">
+    <value>FrmWeiboList</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Name" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;txtResult.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnFrmExport.Name" xml:space="preserve">
+    <value>btnFrmExport</value>
+  </data>
+  <data name="&gt;&gt;comboBoxCondition.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnGenerateImage.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;listView.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="listView.Size" type="System.Drawing.Size, System.Drawing">
+    <value>518, 436</value>
+  </data>
+  <data name="&gt;&gt;btnDownloadImage.Parent" xml:space="preserve">
+    <value>tabPageDataSource</value>
+  </data>
+  <data name="btnWeiboList.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;tabPageDataSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnDownloadInThread.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="lblImagePreview.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tabPageDataSource.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;btnFrmExport.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnGenerateImage.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;btnWeiboList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="txtResult.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Both</value>
+  </data>
+  <data name="tabControl1.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;btnGenerateImage.Parent" xml:space="preserve">
+    <value>tabPageDataSource</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Form1</value>
+  </data>
+  <data name="&gt;&gt;btnSettingForRequest.Name" xml:space="preserve">
+    <value>btnSettingForRequest</value>
+  </data>
+  <data name="&gt;&gt;btnWeiboList.Name" xml:space="preserve">
+    <value>btnWeiboList</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 12</value>
+  </data>
+  <data name="listView.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;listView.Name" xml:space="preserve">
+    <value>listView</value>
+  </data>
+  <data name="&gt;&gt;comboBoxCondition.Name" xml:space="preserve">
+    <value>comboBoxCondition</value>
+  </data>
+  <data name="btnDownloadInThread.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 51</value>
+  </data>
+  <data name="&gt;&gt;btnSettingForRequest.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnRequest.Text" xml:space="preserve">
+    <value>Test for Read</value>
+  </data>
+  <data name="btnFrmExport.Text" xml:space="preserve">
+    <value>FrmExport</value>
+  </data>
+  <data name="lblImagePreview.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 8</value>
+  </data>
+  <data name="&gt;&gt;btnDownloadImage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtResult.Name" xml:space="preserve">
+    <value>txtResult</value>
+  </data>
+  <data name="btnSettingForRequest.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="&gt;&gt;btnDownloadImage.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnSettingForRequest.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Popup</value>
+  </data>
+  <data name="&gt;&gt;tabPageListView.Name" xml:space="preserve">
+    <value>tabPageListView</value>
+  </data>
+  <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="comboBoxCondition.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="lblImagePreview.Text" xml:space="preserve">
+    <value>image label</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>FrmMain</value>
+  </data>
+  <data name="tabPageDataSource.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="listView.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnSettingForRequest.Location" type="System.Drawing.Point, System.Drawing">
+    <value>350, 17</value>
+  </data>
+  <data name="&gt;&gt;btnRequest.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="tabPageListView.Text" xml:space="preserve">
+    <value>ListView</value>
+  </data>
+  <data name="&gt;&gt;btnSettingForRequest.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="tabControl1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>532, 468</value>
+  </data>
+  <data name="btnDownloadInThread.Location" type="System.Drawing.Point, System.Drawing">
+    <value>366, 90</value>
+  </data>
+  <data name="&gt;&gt;tabPageListView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

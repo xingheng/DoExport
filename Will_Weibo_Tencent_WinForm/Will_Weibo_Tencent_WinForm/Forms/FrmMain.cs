@@ -26,10 +26,18 @@ namespace Will_Weibo_Tencent
             InitializeComponent();
         }
 
+        protected override void LocalizationForRunTime()
+        {
+            string title = "";
+            if (SharedMem.IsChineseSimpleCulture())
+                title = SharedMem.AppName + " - 调试主窗口";
+            else
+                title = SharedMem.AppName + " - Debug";
+            this.Text = title;
+        }
+
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            this.Text = SharedMem.AppName + " - List";
-
             comboBoxCondition.Items.Add(RequestKind.MyPrivateWeibo);
             comboBoxCondition.Items.Add(RequestKind.MyHomePage);
             comboBoxCondition.Items.Add(RequestKind.MyFavouriteWeibo);

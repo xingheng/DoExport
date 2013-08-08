@@ -75,7 +75,10 @@ namespace Will_Weibo_Tencent
                 long timeStamp = 0;
                 if (!Int64.TryParse(mTxtTimeStamp.Text.Trim(), out timeStamp))
                 {
-                    MessageBox.Show("The format of time stamp is invalid.");
+                    if (SharedMem.IsChineseSimpleCulture())
+                        MessageBox.Show("指定的时间戳是无效的.");
+                    else
+                        MessageBox.Show("The format of time stamp is invalid.");
                     return;
                 }
                 DateTime dTime = PublicMem.GetDateTimeFromTimeStamp(timeStamp);

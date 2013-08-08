@@ -33,10 +33,18 @@ namespace Will_Weibo_Tencent
             g_ExportRequest = new Request(m_requestKind);
         }
 
+        protected override void LocalizationForRunTime()
+        {
+            string title = "";
+            if (SharedMem.IsChineseSimpleCulture())
+                title = SharedMem.AppName + " - 导出";
+            else
+                title = SharedMem.AppName + " - Export";
+            this.Text = title;
+        }
+
         private void FrmExport_Load(object sender, EventArgs e)
         {
-            this.Text = SharedMem.AppName + " - Export";
-
             txtTextFilePath.ReadOnly = txtImageFilePath.ReadOnly = rTxtResult.ReadOnly = true;
             BtnCancel.BringToFront();
 
