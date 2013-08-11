@@ -37,7 +37,7 @@ namespace Will_Weibo_Tencent
         {
             if (string.IsNullOrEmpty(currentCulture))
             {
-                currentCulture = System.Globalization.CultureInfo.CurrentCulture.Name.ToLower();
+                currentCulture = System.Globalization.CultureInfo.CurrentUICulture.Name.ToLower();
             }
             return (currentCulture == "zh-cn");
         }
