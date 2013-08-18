@@ -69,6 +69,12 @@ namespace Will_Weibo_Tencent
 
             saveFileDialog1.Filter = "(*.xml)|*.xml|(*.txt)|*.txt|(*.html)|*.html|(All)|*.*";
 
+            // Loading for database.
+            string dbPath = @"..\..\Utilities\Database\weibo_export.db";
+            DBOperation.connectionString = "Data Source=" + dbPath;
+            string cmdString = "SELECT * FROM mytable";
+            DBOperation.SQLiteRequest_Write(cmdString);
+
             AppendResult("RequestString: " + g_ExportRequest.RequestString);
             AppendResult("PageFlag: " + g_ExportRequest.PageFlag.ToString());
             AppendResult("LastTimestamp: " + g_ExportRequest.LastTimestamp.ToString());
