@@ -70,10 +70,12 @@ namespace Will_Weibo_Tencent
             saveFileDialog1.Filter = "(*.xml)|*.xml|(*.txt)|*.txt|(*.html)|*.html|(All)|*.*";
 
             // Loading for database.
-            string dbPath = @"..\..\Utilities\Database\weibo_export.db";
+            string dbPath = @"..\..\Utilities\Database\weiboList.s3db";
             DBOperation.connectionString = "Data Source=" + dbPath;
-            string cmdString = "SELECT * FROM mytable";
-            DBOperation.SQLiteRequest_Write(cmdString);
+            string cmdString = "DELETE FROM weibo";
+            Exception ret = DBOperation.SQLiteRequest_Write(cmdString);
+            if (ret != null)
+                MsgResult.DebugMsgBox(ret.ToString());
 
             AppendResult("RequestString: " + g_ExportRequest.RequestString);
             AppendResult("PageFlag: " + g_ExportRequest.PageFlag.ToString());
@@ -237,6 +239,9 @@ namespace Will_Weibo_Tencent
                             else
                                 MsgResult.AssertMsgBox(false, "Impossible case! Please check the logic about fFoundFirst.");
 
+                            // For database
+                            ExportWeiboToDBTable(item, "weibo");
+
 
                             // For text
                             ExportTextToBackupFile(item.str_XML_Info_Node);
@@ -371,6 +376,52 @@ namespace Will_Weibo_Tencent
             // ---------------------- The End of Export---------------------
 
             SetExportStatus(false);
+        }
+
+        private void ExportWeiboToDBTable(WeiboInfo weibo, string tbName)
+        {
+            string cmdString = "INSERT INTO "+ tbName +" VALUES(@id, @citycode, @_count, @country_code, @emotiontype,  @emotionurl, @from, @fromurl," +
+                "@geo, @head, @https_head, @image,  @isrealname, @isvip, @jing, @latitude, @location,  @longitude, @mcount,  @music," +
+                "@name, @nick, @openid, @origtext, @province_code, @self, @source, @status, @text,  @timestamp, @type, @video, @wei)";
+            Exception ret = DBOperation.SQLiteRequest_Write(cmdString,
+                "@id", weibo.id,
+                "@citycode", weibo.citycode,
+                "@_count", weibo.count,
+                "@country_code", weibo.country_code,
+                "@emotiontype", weibo.emotiontype,
+                "@emotionurl", weibo.emotionurl,
+                "@from", weibo.from,
+                "@fromurl", weibo.fromurl,
+                "@geo", weibo.geo,
+                "@head", weibo.head,
+                "@https_head", weibo.https_head,
+                "@image", weibo.image,
+                "@isrealname", weibo.isrealname,
+                "@isvip", weibo.isvip,
+                "@jing", weibo.jing,
+                "@latitude", weibo.latitude,
+                "@location", weibo.location,
+                "@longitude", weibo.longitude,
+                "@mcount", weibo.mcount,
+                "@music", weibo.music,
+                "@name", weibo.name,
+                "@nick", weibo.nick,
+                "@openid", weibo.openid,
+                "@origtext", weibo.origtext,
+                "@province_code", weibo.province_code,
+                "@self", weibo.self,
+                "@source", weibo.source,
+                "@status", weibo.status,
+                "@text", weibo.text,
+                "@timestamp", weibo.timestamp,
+                "@type", weibo.type,
+                "@video", weibo.video,
+                "@wei", weibo.wei
+                );
+            if (ret != null)
+            {
+                MessageBox.Show("Failed!\r\nret: " + ret.ToString() + "cmdText: " + cmdString, "Insert a row");
+            }
         }
 
         private void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
