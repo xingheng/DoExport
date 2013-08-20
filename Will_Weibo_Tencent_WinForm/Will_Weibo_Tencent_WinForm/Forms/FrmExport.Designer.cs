@@ -37,6 +37,10 @@
             this.btnNextPage = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPagePreference = new System.Windows.Forms.TabPage();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnBrowseDB = new System.Windows.Forms.Button();
+            this.cBoxExportAllData = new System.Windows.Forms.CheckBox();
+            this.txtDBFilePath = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnDeselectAll = new System.Windows.Forms.Button();
             this.btnConvert = new System.Windows.Forms.Button();
@@ -56,6 +60,7 @@
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.tabControl1.SuspendLayout();
             this.tabPagePreference.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -86,6 +91,10 @@
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
+            // saveFileDialog1
+            // 
+            resources.ApplyResources(this.saveFileDialog1, "saveFileDialog1");
+            // 
             // btnNextPage
             // 
             resources.ApplyResources(this.btnNextPage, "btnNextPage");
@@ -95,33 +104,61 @@
             // 
             // tabControl1
             // 
+            resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Controls.Add(this.tabPagePreference);
             this.tabControl1.Controls.Add(this.tabPageDetails);
-            resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControl1_Selecting);
             // 
             // tabPagePreference
             // 
+            resources.ApplyResources(this.tabPagePreference, "tabPagePreference");
+            this.tabPagePreference.Controls.Add(this.groupBox4);
             this.tabPagePreference.Controls.Add(this.groupBox3);
             this.tabPagePreference.Controls.Add(this.groupBox2);
             this.tabPagePreference.Controls.Add(this.groupBox1);
             this.tabPagePreference.Controls.Add(this.btnNextPage);
             this.tabPagePreference.Controls.Add(this.btnExport);
-            resources.ApplyResources(this.tabPagePreference, "tabPagePreference");
             this.tabPagePreference.Name = "tabPagePreference";
             this.tabPagePreference.UseVisualStyleBackColor = true;
             // 
+            // groupBox4
+            // 
+            resources.ApplyResources(this.groupBox4, "groupBox4");
+            this.groupBox4.Controls.Add(this.btnBrowseDB);
+            this.groupBox4.Controls.Add(this.cBoxExportAllData);
+            this.groupBox4.Controls.Add(this.txtDBFilePath);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.TabStop = false;
+            // 
+            // btnBrowseDB
+            // 
+            resources.ApplyResources(this.btnBrowseDB, "btnBrowseDB");
+            this.btnBrowseDB.Name = "btnBrowseDB";
+            this.btnBrowseDB.UseVisualStyleBackColor = true;
+            this.btnBrowseDB.Click += new System.EventHandler(this.btnBrowseDB_Click);
+            // 
+            // cBoxExportAllData
+            // 
+            resources.ApplyResources(this.cBoxExportAllData, "cBoxExportAllData");
+            this.cBoxExportAllData.Name = "cBoxExportAllData";
+            this.cBoxExportAllData.UseVisualStyleBackColor = true;
+            // 
+            // txtDBFilePath
+            // 
+            resources.ApplyResources(this.txtDBFilePath, "txtDBFilePath");
+            this.txtDBFilePath.Name = "txtDBFilePath";
+            // 
             // groupBox3
             // 
+            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Controls.Add(this.btnDeselectAll);
             this.groupBox3.Controls.Add(this.btnConvert);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.mTxtTimeStamp);
             this.groupBox3.Controls.Add(this.rBtnEndTime);
             this.groupBox3.Controls.Add(this.rBtnStartTime);
-            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
             // 
@@ -165,10 +202,10 @@
             // 
             // groupBox2
             // 
+            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Controls.Add(this.cBoxExportText);
             this.groupBox2.Controls.Add(this.txtTextFilePath);
             this.groupBox2.Controls.Add(this.btnBrowseTextFile);
-            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             // 
@@ -180,10 +217,10 @@
             // 
             // groupBox1
             // 
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.btnBrowseImageFile);
             this.groupBox1.Controls.Add(this.cBoxExportImage);
             this.groupBox1.Controls.Add(this.txtImageFilePath);
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
@@ -207,10 +244,10 @@
             // 
             // tabPageDetails
             // 
+            resources.ApplyResources(this.tabPageDetails, "tabPageDetails");
             this.tabPageDetails.Controls.Add(this.cBoxDetailedLog);
             this.tabPageDetails.Controls.Add(this.BtnCancel);
             this.tabPageDetails.Controls.Add(this.rTxtResult);
-            resources.ApplyResources(this.tabPageDetails, "tabPageDetails");
             this.tabPageDetails.Name = "tabPageDetails";
             this.tabPageDetails.UseVisualStyleBackColor = true;
             // 
@@ -227,6 +264,10 @@
             this.BtnCancel.UseVisualStyleBackColor = true;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
+            // folderBrowserDialog1
+            // 
+            resources.ApplyResources(this.folderBrowserDialog1, "folderBrowserDialog1");
+            // 
             // FrmExport
             // 
             resources.ApplyResources(this, "$this");
@@ -239,6 +280,8 @@
             this.Load += new System.EventHandler(this.FrmExport_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPagePreference.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -278,5 +321,9 @@
         private System.Windows.Forms.Button btnConvert;
         private System.Windows.Forms.Button btnDeselectAll;
         private System.Windows.Forms.CheckBox cBoxDetailedLog;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button btnBrowseDB;
+        private System.Windows.Forms.CheckBox cBoxExportAllData;
+        private System.Windows.Forms.TextBox txtDBFilePath;
     }
 }

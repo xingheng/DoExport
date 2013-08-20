@@ -126,13 +126,31 @@
   <data name="btnNextPage.Text" xml:space="preserve">
     <value>下一页</value>
   </data>
+  <data name="tabPagePreference.Text" xml:space="preserve">
+    <value>偏好设置</value>
+  </data>
+  <data name="groupBox4.Text" xml:space="preserve">
+    <value>微博详细数据</value>
+  </data>
+  <data name="btnBrowseDB.Text" xml:space="preserve">
+    <value>浏览...</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="cBoxExportAllData.Size" type="System.Drawing.Size, System.Drawing">
+    <value>246, 16</value>
+  </data>
+  <data name="cBoxExportAllData.Text" xml:space="preserve">
+    <value>导出所有详细微博数据到数据库(sqlite3)</value>
+  </data>
+  <data name="groupBox3.Text" xml:space="preserve">
+    <value>时间戳</value>
+  </data>
   <data name="btnDeselectAll.Text" xml:space="preserve">
     <value>全部反选</value>
   </data>
   <data name="btnConvert.Text" xml:space="preserve">
     <value>转换</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>41, 12</value>
   </data>
@@ -151,14 +169,14 @@
   <data name="rBtnStartTime.Text" xml:space="preserve">
     <value>从指定的时间戳开始导出</value>
   </data>
-  <data name="groupBox3.Text" xml:space="preserve">
-    <value>时间戳</value>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>微博文本</value>
   </data>
   <data name="cBoxExportText.Text" xml:space="preserve">
     <value>导出文本内容到</value>
   </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>微博文本</value>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>微博图片</value>
   </data>
   <data name="btnBrowseImageFile.Text" xml:space="preserve">
     <value>浏览...</value>
@@ -169,15 +187,8 @@
   <data name="cBoxExportImage.Text" xml:space="preserve">
     <value>导出图片到</value>
   </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>微博图片</value>
-  </data>
-  <data name="tabPagePreference.Text" xml:space="preserve">
-    <value>偏好设置</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="cBoxDetailedLog.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
+  <data name="tabPageDetails.Text" xml:space="preserve">
+    <value>详细过程</value>
   </data>
   <data name="cBoxDetailedLog.Location" type="System.Drawing.Point, System.Drawing">
     <value>429, 321</value>
@@ -188,13 +199,7 @@
   <data name="cBoxDetailedLog.Text" xml:space="preserve">
     <value>显示详细日志</value>
   </data>
-  <data name="BtnCancel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
   <data name="BtnCancel.Text" xml:space="preserve">
     <value>取消</value>
-  </data>
-  <data name="tabPageDetails.Text" xml:space="preserve">
-    <value>详细过程</value>
   </data>
 </root>

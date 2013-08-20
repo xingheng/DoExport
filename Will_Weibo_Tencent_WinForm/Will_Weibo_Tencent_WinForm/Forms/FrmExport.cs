@@ -21,6 +21,7 @@ namespace Will_Weibo_Tencent
         private bool g_FExporting = false;
         private bool g_FExportText = false;
         private bool g_FExportImage = false;
+        private bool g_FExportDB = false;
 
         private bool g_FDetailedLog = true;
 
@@ -45,10 +46,10 @@ namespace Will_Weibo_Tencent
 
         private void FrmExport_Load(object sender, EventArgs e)
         {
-            txtTextFilePath.ReadOnly = txtImageFilePath.ReadOnly = rTxtResult.ReadOnly = true;
+            txtTextFilePath.ReadOnly = txtImageFilePath.ReadOnly =txtDBFilePath.ReadOnly = rTxtResult.ReadOnly = true;
             BtnCancel.BringToFront();
 
-            cBoxExportText.Checked = false; cBoxExportImage.Checked = true; // We just want to trigger the event below when loading.
+            cBoxExportText.Checked = false; cBoxExportImage.Checked = true; cBoxExportAllData.Checked = true;// We just want to trigger the event below when loading.
             cBoxExportText.CheckedChanged += delegate(object senderA, EventArgs eA)
             { 
                 g_FExportText = btnBrowseTextFile.Enabled = (senderA as CheckBox).Checked; 
@@ -57,7 +58,11 @@ namespace Will_Weibo_Tencent
             {
                 g_FExportImage = btnBrowseImageFile.Enabled = (senderA as CheckBox).Checked; 
             };
-            cBoxExportText.Checked = true; cBoxExportImage.Checked = false;
+            cBoxExportAllData.CheckedChanged += delegate(object senderA, EventArgs eA)
+            {
+                g_FExportDB = btnBrowseDB.Enabled = (senderA as CheckBox).Checked;
+            };
+            cBoxExportText.Checked = true; cBoxExportImage.Checked = false; cBoxExportAllData.Checked = false;
 
             cBoxDetailedLog.CheckedChanged += delegate(object senderA, EventArgs eA)
             {
@@ -66,16 +71,6 @@ namespace Will_Weibo_Tencent
             cBoxDetailedLog.Checked = g_FDetailedLog;
 
             SetExportStatus(false);
-
-            saveFileDialog1.Filter = "(*.xml)|*.xml|(*.txt)|*.txt|(*.html)|*.html|(All)|*.*";
-
-            // Loading for database.
-            string dbPath = @"..\..\Utilities\Database\weiboList.s3db";
-            DBOperation.connectionString = "Data Source=" + dbPath;
-            string cmdString = "DELETE FROM weibo";
-            Exception ret = DBOperation.SQLiteRequest_Write(cmdString);
-            if (ret != null)
-                MsgResult.DebugMsgBox(ret.ToString());
 
             AppendResult("RequestString: " + g_ExportRequest.RequestString);
             AppendResult("PageFlag: " + g_ExportRequest.PageFlag.ToString());
@@ -89,6 +84,7 @@ namespace Will_Weibo_Tencent
 
         private void btnBrowseTextFile_Click(object sender, EventArgs e)
         {
+            saveFileDialog1.Filter = "(*.xml)|*.xml|(*.txt)|*.txt|(*.html)|*.html|(All)|*.*";
             if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 txtTextFilePath.Text = saveFileDialog1.FileName;
         }
@@ -97,6 +93,13 @@ namespace Will_Weibo_Tencent
         {
             if (folderBrowserDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 txtImageFilePath.Text = folderBrowserDialog1.SelectedPath;
+        }
+
+        private void btnBrowseDB_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.Filter = "SQLite3 Database File(*.s3db)|*.s3db|Database File(*.db)|*.db|All|*.*";
+            if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                txtDBFilePath.Text = saveFileDialog1.FileName;
         }
 
         private void AppendResult(string result)
@@ -118,22 +121,29 @@ namespace Will_Weibo_Tencent
         private async void btnExport_Click(object sender, EventArgs e)
         {
             #region Check status of setting
-            string savedTextFilePath = txtTextFilePath.Text, savedImageFilePath = txtImageFilePath.Text;
+            string savedTextFilePath = txtTextFilePath.Text, savedImageFilePath = txtImageFilePath.Text,
+                savedDBFilePath = txtDBFilePath.Text;
             if (cBoxExportText.Checked && String.IsNullOrEmpty(savedTextFilePath))
             {
-                MessageBox.Show("You should choose a file path to save text if you want to do that.");
+                MessageBox.Show("You should choose a file path to save text if you want to.");
                 btnBrowseTextFile_Click(null, null);
                 return;
             }
             if (cBoxExportImage.Checked && String.IsNullOrEmpty(savedImageFilePath))
             {
-                MessageBox.Show("You should choose a folder path to save images if you want to do that.");
+                MessageBox.Show("You should choose a folder path to save images if you want to.");
                 btnBrowseImageFile_Click(null, null);
                 return;
             }
-            if (!cBoxExportText.Checked && !cBoxExportImage.Checked)
+            if (cBoxExportAllData.Checked && String.IsNullOrEmpty(savedDBFilePath))
             {
-                MessageBox.Show("Text or Image? choose one.");
+                MessageBox.Show("You should choose a database file to save data if you want to.");
+                btnBrowseImageFile_Click(null, null);
+                return;
+            }
+            if (!cBoxExportText.Checked && !cBoxExportImage.Checked && !cBoxExportAllData.Checked)
+            {
+                MessageBox.Show("Text, Image or Database? Choose one at least.");
                 return;
             }
             if ((rBtnStartTime.Checked || rBtnEndTime.Checked) && String.IsNullOrEmpty(mTxtTimeStamp.Text.Trim()))
@@ -142,6 +152,10 @@ namespace Will_Weibo_Tencent
                 return;
             }
             #endregion
+
+            // Loading for database.
+            if (g_FExportDB)
+                MsgResult.AssertMsgBox(PrepareforDatabase(savedDBFilePath), "PrepareforDatabase failed.");
 
             tabControl1.SelectedTab = tabPageDetails;
             SetExportStatus(true);
@@ -240,11 +254,12 @@ namespace Will_Weibo_Tencent
                                 MsgResult.AssertMsgBox(false, "Impossible case! Please check the logic about fFoundFirst.");
 
                             // For database
-                            ExportWeiboToDBTable(item, "weibo");
-
+                            if (g_FExportDB)
+                                ExportWeiboToDBTable(item, "weibo");
 
                             // For text
-                            ExportTextToBackupFile(item.str_XML_Info_Node);
+                            if (g_FExportText)
+                                ExportTextToBackupFile(item.str_XML_Info_Node);
 
                             // For image
                             if (g_FExportImage)
@@ -378,6 +393,37 @@ namespace Will_Weibo_Tencent
             SetExportStatus(false);
         }
 
+        private static bool PrepareforDatabase(string strDBPath)
+        {
+            MsgResult.AssertMsgBox(!string.IsNullOrEmpty(strDBPath), "Path is null");
+
+            DBOperation.connectionString = "Data Source=" + strDBPath;
+            string cmdString = "DROP TABLE IF EXISTS weibo";
+            Exception ret = DBOperation.SQLiteRequest_Write(cmdString);
+            if (ret != null)
+                goto LError;
+
+            FileInfo fileScript = new FileInfo(@"..\..\Resources\CreateTable_weibo.sql");
+            if (fileScript.Exists)
+                cmdString = File.ReadAllText(fileScript.FullName, System.Text.Encoding.UTF8);
+            else
+            {
+                MsgResult.DebugMsgBox("File " + fileScript.FullName + " not exists.");
+                goto LError;
+            }
+
+            ret = DBOperation.SQLiteRequest_Write(cmdString);
+            if (ret != null)
+                goto LError;
+
+            return true;
+
+        LError:
+            if (ret != null)
+                MsgResult.DebugMsgBox(ret.ToString());
+            return false;
+        }
+
         private void ExportWeiboToDBTable(WeiboInfo weibo, string tbName)
         {
             string cmdString = "INSERT INTO "+ tbName +" VALUES(@id, @citycode, @_count, @country_code, @emotiontype,  @emotionurl, @from, @fromurl," +
@@ -485,7 +531,8 @@ namespace Will_Weibo_Tencent
         {
             FrmConvertTime frmConvert = new FrmConvertTime(TimeConvertOption.DateTime2TimeStamp);
             frmConvert.ShowDialog();
-            mTxtTimeStamp.Text = frmConvert.Result.ToString();
+            if (frmConvert.Result != null)
+                mTxtTimeStamp.Text = frmConvert.Result.ToString();
         }
     }
 }

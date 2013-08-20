@@ -18,6 +18,16 @@ namespace Will_Weibo_Tencent
             LoadSetting();
         }
 
+        protected override void LocalizationForRunTime()
+        {
+            string title = "";
+            if (SharedMem.IsChineseSimpleCulture())
+                title = SharedMem.AppName + " - 时间转换";
+            else
+                title = SharedMem.AppName + " - Convert Time";
+            this.Text = title;
+        }
+
         public FrmConvertTime(TimeConvertOption option) : this()
         {
             switch (option)
