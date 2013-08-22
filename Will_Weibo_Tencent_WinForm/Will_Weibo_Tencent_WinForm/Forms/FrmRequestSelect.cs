@@ -57,7 +57,7 @@ namespace Will_Weibo_Tencent
 
             cBoxImportFileKind.Items.Clear();
             cBoxImportFileKind.Items.Insert(0, "Database File (sqlite3)");
-            cBoxImportFileKind.Items.Insert(1, "Html File");
+            cBoxImportFileKind.Items.Insert(1, "XML/HTML File");
             cBoxImportFileKind.SelectedIndex = 0;
         }
 
@@ -137,7 +137,7 @@ namespace Will_Weibo_Tencent
             if (index == 0)
                 openFileDialog1.Filter = "SQLite3 Database File(*.s3db)|*.s3db|Database File(*.db)|*.db";
             else if (index == 1)
-                openFileDialog1.Filter = "Html File(*.html)|*.html";
+                openFileDialog1.Filter = "XML File(*.xml)|*.xml|Html File(*.html)|*.html";
             else
                 MsgResult.DebugMsgBox("Additional imported file kind?");
 
@@ -172,9 +172,18 @@ namespace Will_Weibo_Tencent
         private WeiboInfo[] GetDataFromHtmlFile(string strHtmlFilePath)
         {
             MsgResult.AssertMsgBox(!string.IsNullOrEmpty(strHtmlFilePath), "GetDataFromHtmlFile: Invalid Parameter: Empty file path");
-            MsgResult.AssertMsgBox(strHtmlFilePath.ToLower().EndsWith("html"), "GetDataFromHtmlFile: Not a html file.");
+            MsgResult.AssertMsgBox(strHtmlFilePath.ToLower().EndsWith("xml") || strHtmlFilePath.ToLower().EndsWith("html"), 
+                "GetDataFromHtmlFile: Not a html file.");
 
-            return null;
+            WeiboInfo[] list = null;
+            WeiboErrorCode err = null;
+            string strContent = File.ReadAllText(strHtmlFilePath);
+            MsgResult.AssertMsgBox(XMLParser.ParseWeiboInfoList(strContent, out list, out err), 
+                "XMLParser.ParseWeiboInfoList: Failed to parse.");
+            MsgResult.AssertMsgBox(err.FSuccess(), err.GetErrorString());
+
+            MsgResult.AssertMsgConsole(list != null && list.Length > 0, "GetDataFromHtmlFile: None data returned.");
+            return list;
         }
 
         private WeiboInfo[] GetDataFromDBFile(string strDBPath)

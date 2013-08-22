@@ -177,7 +177,7 @@ namespace Will_Weibo_Tencent
 
             // ---------------------- The Beginning of Export---------------------
             #region
-            ExportTextToBackupFile("<data>");
+            ExportTextToBackupFile("<root><data>");
             ExportTextToBackupFile("\r\n");
 
             CollectResult collectLog = new CollectResult();
@@ -371,7 +371,7 @@ namespace Will_Weibo_Tencent
             }
             finally
             {
-                ExportTextToBackupFile("</data>");
+                ExportTextToBackupFile("</data></root>");
             }
 
         LError:
