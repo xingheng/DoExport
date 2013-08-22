@@ -14,7 +14,7 @@ using System.Xml;
 using System.Threading;
 using UTILITIES_HAN;
 
-namespace Will_Weibo_Tencent
+namespace DoExport
 {
     public partial class FrmMain : Form
     {

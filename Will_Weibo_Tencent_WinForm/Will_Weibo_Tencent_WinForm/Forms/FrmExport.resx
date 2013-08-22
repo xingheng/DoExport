@@ -625,7 +625,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>Will_Weibo_Tencent.Form, Will_Weibo_Tencent, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>DoExport.Form, DoExport, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="cBoxExportText.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>

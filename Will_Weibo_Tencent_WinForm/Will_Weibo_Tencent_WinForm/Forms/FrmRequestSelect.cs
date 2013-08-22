@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using UTILITIES_HAN;
 using System.IO;
 
-namespace Will_Weibo_Tencent
+namespace DoExport
 {
     public partial class FrmRequestSelect : Form
     {

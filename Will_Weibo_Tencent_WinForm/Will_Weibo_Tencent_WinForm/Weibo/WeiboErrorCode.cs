@@ -3,7 +3,7 @@ using System.Xml;
 using System.IO;
 using UTILITIES_HAN;
 
-namespace Will_Weibo_Tencent
+namespace DoExport
 {
 
     public class WeiboErrorCode : ErrorCode

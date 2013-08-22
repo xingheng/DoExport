@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using UTILITIES_HAN;
 
-namespace Will_Weibo_Tencent
+namespace DoExport
 {
     public partial class FrmAuthorization : Form
     {

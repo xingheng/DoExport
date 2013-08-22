@@ -1,5 +1,5 @@
 ﻿
-namespace Will_Weibo_Tencent
+namespace DoExport
 {
     public static class SharedMem
     {

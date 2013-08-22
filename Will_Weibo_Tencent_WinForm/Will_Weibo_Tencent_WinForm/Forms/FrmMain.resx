@@ -160,7 +160,7 @@
     <value>366, 18</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>Will_Weibo_Tencent.Form, Will_Weibo_Tencent, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>DoExport.Form, DoExport, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;btnSettingForRequest.ZOrder" xml:space="preserve">
     <value>0</value>

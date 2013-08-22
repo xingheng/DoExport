@@ -9,7 +9,7 @@ using System.IO;
 using System.Xml;
 using UTILITIES_HAN;
 
-namespace Will_Weibo_Tencent
+namespace DoExport
 {
     public enum WeiboMediaFlag : byte
     {

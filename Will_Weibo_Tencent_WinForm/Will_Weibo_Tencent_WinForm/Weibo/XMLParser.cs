@@ -2,7 +2,7 @@
 using System.Xml;
 using UTILITIES_HAN;
 
-namespace Will_Weibo_Tencent
+namespace DoExport
 {
     class XMLParser
     {

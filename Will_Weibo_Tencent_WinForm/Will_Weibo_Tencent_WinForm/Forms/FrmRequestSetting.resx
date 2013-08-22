@@ -691,7 +691,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>Will_Weibo_Tencent.Form, Will_Weibo_Tencent, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>DoExport.Form, DoExport, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="checkBox2AllType.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>

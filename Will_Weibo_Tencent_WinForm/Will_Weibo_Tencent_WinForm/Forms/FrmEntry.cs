@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Will_Weibo_Tencent
+namespace DoExport
 {
     public enum LoginEntryOption
     {

@@ -1,7 +1,7 @@
 ﻿
 using UTILITIES_HAN;
 
-namespace Will_Weibo_Tencent
+namespace DoExport
 {
     partial class WeiboPanel
     {
@@ -174,7 +174,7 @@ namespace Will_Weibo_Tencent
             // picBoxUserPhoto
             // 
             this.picBoxUserPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.picBoxUserPhoto.Image = global::Will_Weibo_Tencent.Properties.Resources.weiboicon32;
+            this.picBoxUserPhoto.Image = global::DoExport.Properties.Resources.weiboicon32;
             this.picBoxUserPhoto.Location = new System.Drawing.Point(3, 3);
             this.picBoxUserPhoto.Name = "picBoxUserPhoto";
             this.picBoxUserPhoto.Size = new System.Drawing.Size(35, 35);

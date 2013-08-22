@@ -1,4 +1,4 @@
-﻿namespace Will_Weibo_Tencent
+﻿namespace DoExport
 {
     partial class FrmAuthorization
     {

@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using System.Reflection;
 using UTILITIES_HAN;
 
-namespace Will_Weibo_Tencent
+namespace DoExport
 {
     //-----------------------------------------------------------------------------
     //---------------------------------BEGIN -------------------------------------

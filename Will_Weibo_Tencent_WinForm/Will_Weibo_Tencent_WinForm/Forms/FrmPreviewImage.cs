@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Will_Weibo_Tencent
+namespace DoExport
 {
     public partial class FrmPreviewImage : Form
     {
