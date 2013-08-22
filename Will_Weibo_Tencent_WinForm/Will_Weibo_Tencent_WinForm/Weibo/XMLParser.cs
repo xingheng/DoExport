@@ -164,14 +164,17 @@ namespace Will_Weibo_Tencent
             weibo.province_code = GetInnerTextFromSingleNode(info, "province_code");
             weibo.self = GetInnerTextFromSingleNode(info, "self");
 
-            string strSource = GetInnerTextFromSingleNode(info, "source");
-            if (String.IsNullOrEmpty(strSource))
+            string strSourceKey = "source";
+            string strSourceValue = GetInnerTextFromSingleNode(info, strSourceKey);
+            if (String.IsNullOrEmpty(strSourceValue))
                 weibo.source = "";
             else
             {
-                XmlNode subSourceNode = info.SelectSingleNode("source");
+                XmlNode subSourceNode = info.SelectSingleNode(strSourceKey);
                 weibo.subWeibo = CollectWeiboInfo(subSourceNode);   // Endless loop here? No!
                 //  A WeiboInfo object could have only one original source, logically.
+
+                weibo.source = "<" + strSourceKey + ">" + subSourceNode.InnerXml + "</" + strSourceKey + ">";
             }
 
             weibo.status = GetInnerTextFromSingleNode(info, "status");

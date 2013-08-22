@@ -9,7 +9,7 @@ namespace UTILITIES_HAN
     {
         public static string connectionString = "";
 
-        public static Object SQLiteRequest_Read(string cmdString, params object[] argsList)
+        public static DataTable SQLiteRequest_Read(string cmdString, params object[] argsList)
         {
             if (argsList.Length % 2 != 0)
                 MsgResult.DebugMsgBox("The length of argsList is invalid, please check it!");

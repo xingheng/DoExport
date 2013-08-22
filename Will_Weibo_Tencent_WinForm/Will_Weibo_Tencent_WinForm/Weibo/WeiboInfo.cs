@@ -112,6 +112,23 @@ namespace Will_Weibo_Tencent
             MsgResult.DebugMsgBox("Not yet!");
         }
 
+        public static WeiboInfo GetWeiboInfoFromNodeString(string xmlInfoNode)
+        {
+            WeiboInfo retWeibo = null;
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.LoadXml(xmlInfoNode);
+            XmlNode info = xmlDoc.SelectSingleNode("info");
+            if (info == null)
+                info = xmlDoc.SelectSingleNode("source");
+            if (info != null)
+            {
+                retWeibo = XMLParser.CollectWeiboInfo(info);
+                retWeibo.ExpandInfo();
+            }
+
+            return retWeibo;
+        }
+
         // Members of ICloneable
         public object Clone()
         {
@@ -153,6 +170,9 @@ namespace Will_Weibo_Tencent
         /// </summary>
         public void ExpandInfo()
         {
+            if (subWeibo == null && !string.IsNullOrEmpty(source))
+                subWeibo = GetWeiboInfoFromNodeString(source);
+
             if (!String.IsNullOrEmpty(image))
                 p_MediaFlag |= WeiboMediaFlag.HasImageOnly;
             else if (this.subWeibo != null && !String.IsNullOrEmpty(this.subWeibo.image))
@@ -174,6 +194,22 @@ namespace Will_Weibo_Tencent
                 p_Type = WeiboType.Original;
         }
 
+        /// <summary>
+        /// Expand the info from the references of weibo.
+        ///     For some things, get the Image object from image url, convert the timestamp to DateTime object, etc.
+        /// </summary>
+        public async Task ExpandInfoEx()
+        {
+            if (!String.IsNullOrEmpty(image))
+            {
+                await GenerateImageFromURL(image);
+            }
+            if (!String.IsNullOrEmpty(video))
+            {
+            }
+        }
+
+        #region DataTime and Timestamp
         public DateTime GetTime()
         {
             long timestamp = 0;
@@ -201,21 +237,7 @@ namespace Will_Weibo_Tencent
             else
                 return 0;
         }
-
-        /// <summary>
-        /// Expand the info from the references of weibo.
-        ///     For some things, get the Image object from image url, convert the timestamp to DateTime object, etc.
-        /// </summary>
-        public async Task ExpandInfoEx()
-        {
-            if (!String.IsNullOrEmpty(image))
-            {
-                await GenerateImageFromURL(image);
-            }
-            if (!String.IsNullOrEmpty(video))
-            {
-            }
-        }
+        #endregion
 
         #region Image
 
