@@ -1,17 +1,5 @@
-﻿/*---------------------------------------------------------------------------------------------*/
-
-// define this switcher to determinate whether we need use weibo cache data.
-//#define USE_CACHE_DATA_WEIBO
-//#undef USE_CACHE_DATA_WEIBO       // Comment out/Uncomment this line to enable/disable it.
-
-/*---------------------------------------------------------------------------------------------*/
-
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -27,7 +15,6 @@ namespace Will_Weibo_Tencent
         public FrmRequestSelect()
         {
             InitializeComponent();
-            LocalizationForRunTime();
         }
 
         protected override void LocalizationForRunTime()
@@ -82,36 +69,11 @@ namespace Will_Weibo_Tencent
             WeiboErrorCode err;
             WeiboInfo[] weiboList;
 
-            string cacheFilepath = "./weibo_cache_list.txt";
             Encoding encode = Encoding.GetEncoding("gb2312");
 
-#if !(USE_CACHE_DATA_WEIBO)
-
             Request request = new Request(m_requestKind);
-
-            if (true)   // for cache data
-            {
-                string strRequest = request.RequestString;
-                string resultString = await WebStreamService.GetResponseStringFromURL(strRequest);
-
-                // Cache the lastest weibo list to local file, then we could debug the app using the data without Authorization.
-                if (File.Exists(cacheFilepath))
-                    File.Delete(cacheFilepath);
-
-                File.AppendAllText(cacheFilepath, resultString, encode);
-            }
-
             weiboList = await request.SendRequest();
             err = request.LastErrCode;
-#else
-            string resultString = "";
-            if (File.Exists(cacheFilepath))
-                resultString = File.ReadAllText(cacheFilepath, encode);
-            else
-                MsgResult.DebugMsgBox("weibo cache file doesn't exist. Path: {0}", cacheFilepath);
-
-            XMLParser.ParseWeiboInfoList(resultString, out weiboList, out err);
-#endif
             MsgResult.AssertMsgBox(err.FSuccess(), err.GetErrorString());
 
             return weiboList;
