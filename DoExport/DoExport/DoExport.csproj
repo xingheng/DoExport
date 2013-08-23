@@ -7,12 +7,12 @@
     <ProjectGuid>{C9332169-A1CA-414C-B6D9-9181F4E9CA1C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Will_Weibo_Tencent</RootNamespace>
-    <AssemblyName>Will_Weibo_Tencent</AssemblyName>
+    <RootNamespace>DoExport</RootNamespace>
+    <AssemblyName>DoExport</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>E:\SkyDrive\NewSkyDrive\SkyDrive\Cache\Will_Weibo_Tencent_Publish\</PublishUrl>
+    <PublishUrl>E:\SkyDrive\NewSkyDrive\SkyDrive\Cache\DoExport\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
