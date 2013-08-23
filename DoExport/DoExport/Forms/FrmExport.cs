@@ -78,12 +78,13 @@ namespace DoExport
             AppendResult("LastWeiboID: " + g_ExportRequest.LastWeiboID.ToString());
 
 #if !DEBUG
-            this.Controls.Remove(this.btnNextPage);
+            this.btnNextPage.Dispose();
 #endif
         }
 
         private void btnBrowseTextFile_Click(object sender, EventArgs e)
         {
+            saveFileDialog1.FileName = "";
             saveFileDialog1.Filter = "(*.xml)|*.xml|(*.txt)|*.txt|(*.html)|*.html|(All)|*.*";
             if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 txtTextFilePath.Text = saveFileDialog1.FileName;
@@ -97,6 +98,7 @@ namespace DoExport
 
         private void btnBrowseDB_Click(object sender, EventArgs e)
         {
+            saveFileDialog1.FileName = "";
             saveFileDialog1.Filter = "SQLite3 Database File(*.s3db)|*.s3db|Database File(*.db)|*.db|All|*.*";
             if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 txtDBFilePath.Text = saveFileDialog1.FileName;

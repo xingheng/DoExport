@@ -17,52 +17,59 @@ namespace DoExport
         [STAThread]
         static void Main()
         {
-            MsgResult.AllocSingleConsole();
+            try
+            {
+                MsgResult.AllocSingleConsole();
 
 #if DEBUG_SPECIFIED_WINDOW
             //Application.Run(new FrmMain());
             //Application.Run(new FrmRequestSelect());
             Application.Run(new FrmExport(TimelineKind.MyFavouriteWeibo));
 #else
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
 
-            Form frm = null;
-            FrmEntry entry = new FrmEntry();
-            Application.Run(entry);
+                Form frm = null;
+                FrmEntry entry = new FrmEntry();
+                Application.Run(entry);
 
-            if ((entry.entryOption & LoginEntryOption.AnyEntry) != 0)
-            {
-                FrmAuthorization autho = new FrmAuthorization();
-                Application.Run(autho);
+                if ((entry.entryOption & LoginEntryOption.AnyEntry) != 0)
+                {
+                    FrmAuthorization autho = new FrmAuthorization();
+                    Application.Run(autho);
 
-                if (!autho.FAuthorize)
+                    if (!autho.FAuthorize)
+                        goto LError;
+                }
+                else
                     goto LError;
-            }
-            else
-                goto LError;
 
-            switch (entry.entryOption)
-            {
-                case LoginEntryOption.CommonUserEntry:
-                    frm = new FrmRequestSelect();
-                    break;
-                case LoginEntryOption.DeveloperEntry:
-                    frm = new FrmMain();
-                    break;
-                case LoginEntryOption.None:
-                    goto LError;
-            }
+                switch (entry.entryOption)
+                {
+                    case LoginEntryOption.CommonUserEntry:
+                        frm = new FrmRequestSelect();
+                        break;
+                    case LoginEntryOption.DeveloperEntry:
+                        frm = new FrmMain();
+                        break;
+                    case LoginEntryOption.None:
+                        goto LError;
+                }
 
-            if (frm != null)
-            {
-                Application.Run(frm);
-            }
+                if (frm != null)
+                {
+                    Application.Run(frm);
+                }
 
-        LError:
+            LError:
 #endif // DEBUG_SPECIFIED_WINDOW
 
-            MsgResult.FreeSingleConsole();
+                MsgResult.FreeSingleConsole();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 

@@ -118,7 +118,10 @@ namespace DoExport
 
             int index = cBoxImportFileKind.SelectedIndex;
             if (index == 0)
-                weiboList = GetDataFromDBFile(strImportFilePath);
+            {
+                FrmWeiboList listWindow = new FrmWeiboList(strImportFilePath);
+                listWindow.ShowDialog();
+            }
             else if (index == 1)
                 weiboList = GetDataFromHtmlFile(strImportFilePath);
             else
@@ -146,71 +149,6 @@ namespace DoExport
 
             MsgResult.AssertMsgConsole(list != null && list.Length > 0, "GetDataFromHtmlFile: None data returned.");
             return list;
-        }
-
-        private WeiboInfo[] GetDataFromDBFile(string strDBPath)
-        {
-            MsgResult.AssertMsgBox(!string.IsNullOrEmpty(strDBPath), "GetDataFromDBFile: Invalid Parameter: Empty file path");
-            MsgResult.AssertMsgBox(strDBPath.ToLower().EndsWith("s3db") || strDBPath.ToLower().EndsWith("db"),
-                "GetDataFromDBFile: Not a database file.");
-
-            DBOperation.connectionString = "Data Source=" + strDBPath;
-            string cmdString = "SELECT * FROM weibo";
-            DataTable list = DBOperation.SQLiteRequest_Read(cmdString);
-            if (list == null)
-            {
-                MsgResult.WriteLine("GetDataFromDBFile: None data returned.");
-                return null;
-            }
-
-            WeiboInfo[] retData = new WeiboInfo[list.Rows.Count];
-            int index = 0;
-            foreach (DataRow item in list.Rows)
-            {
-                WeiboInfo weibo = new WeiboInfo();
-
-                #region Convert DataRow to WeiboInfo
-                weibo.id = item[list.Columns["id"]].ToString();
-                weibo.citycode = item[list.Columns["city_code"]].ToString();
-                weibo.count = item[list.Columns["_count"]].ToString();
-                weibo.country_code = item[list.Columns["country_code"]].ToString();
-                weibo.emotiontype = item[list.Columns["emotiontype"]].ToString();
-                weibo.emotionurl = item[list.Columns["emotionurl"]].ToString();
-                weibo.from = item[list.Columns["from"]].ToString();
-                weibo.fromurl = item[list.Columns["fromurl"]].ToString();
-                weibo.geo = item[list.Columns["geo"]].ToString();
-                weibo.head = item[list.Columns["head"]].ToString();
-                weibo.https_head = item[list.Columns["https_head"]].ToString();
-                weibo.image = item[list.Columns["image"]].ToString();
-                weibo.isrealname = item[list.Columns["isrealname"]].ToString();
-                weibo.isvip = item[list.Columns["isvip"]].ToString();
-                weibo.jing = item[list.Columns["jing"]].ToString();
-                weibo.latitude = item[list.Columns["latitude"]].ToString();
-                weibo.location = item[list.Columns["location"]].ToString();
-                weibo.longitude = item[list.Columns["longitude"]].ToString();
-                weibo.mcount = item[list.Columns["mcount"]].ToString();
-                weibo.music = item[list.Columns["music"]].ToString();
-                weibo.name = item[list.Columns["name"]].ToString();
-                weibo.nick = item[list.Columns["nick"]].ToString();
-                weibo.openid = item[list.Columns["openid"]].ToString();
-                weibo.origtext = item[list.Columns["origtext"]].ToString();
-                weibo.province_code = item[list.Columns["province_code"]].ToString();
-                weibo.self = item[list.Columns["self"]].ToString();
-                weibo.source = item[list.Columns["source"]].ToString();
-                weibo.status = item[list.Columns["status"]].ToString();
-                weibo.text = item[list.Columns["text"]].ToString();
-                weibo.timestamp = item[list.Columns["timestamp"]].ToString();
-                weibo.type = item[list.Columns["type"]].ToString();
-                weibo.video = item[list.Columns["video"]].ToString();
-                weibo.wei = item[list.Columns["wei"]].ToString();
-                #endregion
-
-                // We will show the weibo data in UI, so generate the extra data for weibo object here.
-                weibo.ExpandInfo();
-
-                retData[index++] = weibo;
-            }
-            return retData;
         }
     }
 }
