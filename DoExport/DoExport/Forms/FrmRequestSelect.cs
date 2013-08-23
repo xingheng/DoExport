@@ -69,8 +69,6 @@ namespace DoExport
             WeiboErrorCode err;
             WeiboInfo[] weiboList;
 
-            Encoding encode = Encoding.GetEncoding("gb2312");
-
             Request request = new Request(m_requestKind);
             weiboList = await request.SendRequest();
             err = request.LastErrCode;
@@ -113,8 +111,13 @@ namespace DoExport
 
         private void btnPreview_Click(object sender, EventArgs e)
         {
-            string strImportFilePath = txtImportFilePath.Text;
             WeiboInfo[] weiboList = null;
+            string strImportFilePath = txtImportFilePath.Text;
+            if (!File.Exists(strImportFilePath))
+            {
+                MessageBox.Show("File '" + strImportFilePath + "' doesn't exist.");
+                return;
+            }
 
             int index = cBoxImportFileKind.SelectedIndex;
             if (index == 0)
@@ -123,15 +126,25 @@ namespace DoExport
                 listWindow.ShowDialog();
             }
             else if (index == 1)
+            {
                 weiboList = GetDataFromHtmlFile(strImportFilePath);
+
+                if (weiboList != null && weiboList.Length > 0)
+                {
+                    string strMemDB = Application.StartupPath + "\\temp.db";
+                    FrmExport.PrepareforDatabase(strMemDB);
+                    foreach (WeiboInfo item in weiboList)
+                        FrmExport.ExportWeiboToDBTable(item, "weibo");
+
+                    FrmWeiboList listWindow = new FrmWeiboList(strMemDB);
+                    listWindow.ShowDialog();
+
+                    if (File.Exists(strMemDB))
+                        File.Delete(strMemDB);
+                }
+            }
             else
                 MsgResult.DebugMsgBox("Additional imported file kind?");
-
-            if (weiboList != null)
-            {
-                FrmWeiboList listWindow = new FrmWeiboList(weiboList);
-                listWindow.ShowDialog();
-            }
         }
 
         private WeiboInfo[] GetDataFromHtmlFile(string strHtmlFilePath)

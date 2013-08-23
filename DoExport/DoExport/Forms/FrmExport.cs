@@ -395,7 +395,7 @@ namespace DoExport
             SetExportStatus(false);
         }
 
-        private static bool PrepareforDatabase(string strDBPath)
+        public static bool PrepareforDatabase(string strDBPath)
         {
             MsgResult.AssertMsgBox(!string.IsNullOrEmpty(strDBPath), "Path is null");
 
@@ -426,7 +426,7 @@ namespace DoExport
             return false;
         }
 
-        private void ExportWeiboToDBTable(WeiboInfo weibo, string tbName)
+        public static void ExportWeiboToDBTable(WeiboInfo weibo, string tbName)
         {
             string cmdString = "INSERT INTO "+ tbName +" VALUES(@id, @citycode, @_count, @country_code, @emotiontype,  @emotionurl, @from, @fromurl," +
                 "@geo, @head, @https_head, @image,  @isrealname, @isvip, @jing, @latitude, @location,  @longitude, @mcount,  @music," +

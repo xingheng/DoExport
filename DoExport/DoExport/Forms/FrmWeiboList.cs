@@ -15,6 +15,7 @@ namespace DoExport
         public FrmWeiboList(WeiboInfo[] list)
         {
             InitializeComponent();
+            SetPageFlip(false);
 
             MsgResult.AssertMsgBox(list.Length <= g_MaxCount, "Too much weibo records, suggest use data table instead.");
             g_weiboInfoList = list;
@@ -23,6 +24,7 @@ namespace DoExport
         public FrmWeiboList(string strDBPath)
         {
             InitializeComponent();
+            SetPageFlip(true);
 
             PrepareForDB(strDBPath);
             g_weiboInfoList = GetDataFromDBFile(g_CurIndex);
@@ -123,9 +125,7 @@ namespace DoExport
                 return;
 
             //foreach (Control item in tableLayoutPanel1.Controls)
-            //{
             //    item.Dispose();
-            //}
             tableLayoutPanel1.Controls.Clear();
 
             int count = g_weiboInfoList.Length;
@@ -158,16 +158,36 @@ namespace DoExport
             }
         }
 
+        private void SetPageFlip(bool fStatus)
+        {
+            btnPrevious.Enabled = btnNext.Enabled = fStatus;
+        }
+
         private void btnPrevious_Click(object sender, EventArgs e)
         {
+            if (g_CurIndex < g_MaxCount)
+                return;
+
             g_weiboInfoList = GetDataFromDBFile(g_CurIndex - g_MaxCount);
-            LoadData();
+            if (g_weiboInfoList.Length > 0)
+            {
+                btnNext.Enabled = true;
+                LoadData();
+            }
+            else
+                ((Button)sender).Enabled = false;
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
             g_weiboInfoList = GetDataFromDBFile(g_CurIndex + g_MaxCount);
-            LoadData();
+            if (g_weiboInfoList.Length > 0)
+            {
+                btnPrevious.Enabled = true;
+                LoadData();
+            }
+            else
+                ((Button)sender).Enabled = false;
         }
     }
 }
