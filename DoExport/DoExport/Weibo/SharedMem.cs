@@ -24,9 +24,9 @@ namespace DoExport
                 if (string.IsNullOrEmpty(appName))
                 {
                     if (IsChineseSimpleCulture())
-                        appName = "微博导出工具";
+                        appName = "微博导出工具 DoExport";
                     else
-                        appName = "Weibo Export Tool";
+                        appName = "DoExport";
                 }
                 return appName;
             }
