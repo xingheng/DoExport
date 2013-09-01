@@ -140,7 +140,7 @@ namespace DoExport
             if (cBoxExportAllData.Checked && String.IsNullOrEmpty(savedDBFilePath))
             {
                 MessageBox.Show("You should choose a database file to save data if you want to.");
-                btnBrowseImageFile_Click(null, null);
+                btnBrowseDB_Click(null, null);
                 return;
             }
             if (!cBoxExportText.Checked && !cBoxExportImage.Checked && !cBoxExportAllData.Checked)

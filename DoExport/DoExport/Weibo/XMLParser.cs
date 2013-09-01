@@ -37,13 +37,15 @@ namespace DoExport
         /// <summary>
         /// Parse the xml string to WeiboInfo array.
         /// 
-        /// Note: xmlString should contains the "root" node string.
+        /// <remarks>(1) xmlString should contains the "root" node string. (2) The default start index is 0. (3) If the parsedLenth is 0, we will do it to an end.</remarks>
         /// </summary>
         /// <param name="xmlString">XML string to be parsed</param>
+        /// <param name="startIndex">The start index, which "info" node we should begin to parse</param>
         /// <param name="weiboList">[OUT]The WeiboInfo list</param>
+        /// <param name="parsedLength">The expected number of WeiboInfo object to be returned.</param>
         /// <param name="retValue">The error code of last request.</param>
         /// <returns>True if parse successfully</returns>
-        public static bool ParseWeiboInfoList(string xmlString, out WeiboInfo[] weiboList, out WeiboErrorCode retValue)
+        public static bool ParseWeiboInfoList(string xmlString, int startIndex, out WeiboInfo[] weiboList, int parsedLength, out WeiboErrorCode retValue)
         {
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.LoadXml(xmlString);
@@ -54,13 +56,19 @@ namespace DoExport
             {
                 XmlNodeList infoList = data.SelectNodes("info");
 
-                weiboList = new WeiboInfo[infoList.Count];
-                int index = 0;
-                foreach (XmlNode info in infoList)
+                int retLength = (parsedLength > 0) ? parsedLength : infoList.Count;
+                weiboList = new WeiboInfo[retLength];
+                int index = 0;  // for weiboList result array.
+                int i = (startIndex > 0) ? startIndex : 0;  // for "info" node array.
+
+                for( ; i < infoList.Count; i++)
                 {
+                    XmlNode info = infoList[i];
                     WeiboInfo weibo = CollectWeiboInfo(info);
 
                     weiboList[index++] = weibo;
+                    if (index > retLength - 1)
+                        break;
                 }
             }
             else

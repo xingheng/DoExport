@@ -119,49 +119,36 @@ namespace DoExport
                 return;
             }
 
+            FrmWeiboList listWindow = null;
             int index = cBoxImportFileKind.SelectedIndex;
-            if (index == 0)
+            if (index == 0) // Database file
             {
-                FrmWeiboList listWindow = new FrmWeiboList(strImportFilePath);
-                listWindow.ShowDialog();
+                listWindow = new FrmWeiboList(strImportFilePath, FrmWeiboList.InputDataType.DataBase);
             }
-            else if (index == 1)
+            else if (index == 1)    // XML file
             {
-                weiboList = GetDataFromHtmlFile(strImportFilePath);
+                listWindow = new FrmWeiboList(strImportFilePath, FrmWeiboList.InputDataType.XML);
+                //weiboList = GetDataFromHtmlFile(strImportFilePath);
 
-                if (weiboList != null && weiboList.Length > 0)
-                {
-                    string strMemDB = Application.StartupPath + "\\temp.db";
-                    FrmExport.PrepareforDatabase(strMemDB);
-                    foreach (WeiboInfo item in weiboList)
-                        FrmExport.ExportWeiboToDBTable(item, "weibo");
+                //if (weiboList != null && weiboList.Length > 0)
+                //{
+                //    string strMemDB = Application.StartupPath + "\\temp.db";
+                //    FrmExport.PrepareforDatabase(strMemDB);
+                //    foreach (WeiboInfo item in weiboList)
+                //        FrmExport.ExportWeiboToDBTable(item, "weibo");
 
-                    FrmWeiboList listWindow = new FrmWeiboList(strMemDB);
-                    listWindow.ShowDialog();
+                //    FrmWeiboList listWindow = new FrmWeiboList(strMemDB);
+                //    listWindow.ShowDialog();
 
-                    if (File.Exists(strMemDB))
-                        File.Delete(strMemDB);
-                }
+                //    if (File.Exists(strMemDB))
+                //        File.Delete(strMemDB);
+                //}
             }
             else
                 MsgResult.DebugMsgBox("Additional imported file kind?");
-        }
 
-        private WeiboInfo[] GetDataFromHtmlFile(string strHtmlFilePath)
-        {
-            MsgResult.AssertMsgBox(!string.IsNullOrEmpty(strHtmlFilePath), "GetDataFromHtmlFile: Invalid Parameter: Empty file path");
-            MsgResult.AssertMsgBox(strHtmlFilePath.ToLower().EndsWith("xml") || strHtmlFilePath.ToLower().EndsWith("html"), 
-                "GetDataFromHtmlFile: Not a html file.");
-
-            WeiboInfo[] list = null;
-            WeiboErrorCode err = null;
-            string strContent = File.ReadAllText(strHtmlFilePath);
-            MsgResult.AssertMsgBox(XMLParser.ParseWeiboInfoList(strContent, out list, out err), 
-                "XMLParser.ParseWeiboInfoList: Failed to parse.");
-            MsgResult.AssertMsgBox(err.FSuccess(), err.GetErrorString());
-
-            MsgResult.AssertMsgConsole(list != null && list.Length > 0, "GetDataFromHtmlFile: None data returned.");
-            return list;
+            if (listWindow != null)
+                listWindow.ShowDialog();
         }
     }
 }

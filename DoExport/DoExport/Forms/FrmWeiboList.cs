@@ -2,15 +2,24 @@
 using System.Windows.Forms;
 using System.Drawing;
 using System.Data;
+using System.IO;
 using UTILITIES_HAN;
 
 namespace DoExport
 {
     public partial class FrmWeiboList : Form
     {
+        public enum InputDataType
+        {
+            WeiboArray, DataBase, XML
+        };
+
         public WeiboInfo[] g_weiboInfoList;
-        private const int g_MaxCount = 50;
+        private const int g_MaxCount = 10;
         private int g_CurIndex = 0; // The index of first item in current page.
+        private InputDataType g_InputType;
+
+        private string g_HtmlDataPath;
 
         public FrmWeiboList(WeiboInfo[] list)
         {
@@ -19,15 +28,31 @@ namespace DoExport
 
             MsgResult.AssertMsgBox(list.Length <= g_MaxCount, "Too much weibo records, suggest use data table instead.");
             g_weiboInfoList = list;
+            g_InputType = InputDataType.WeiboArray;
         }
 
-        public FrmWeiboList(string strDBPath)
+        public FrmWeiboList(string strDataPath, InputDataType input)
         {
             InitializeComponent();
-            SetPageFlip(true);
 
-            PrepareForDB(strDBPath);
-            g_weiboInfoList = GetDataFromDBFile(g_CurIndex);
+            g_InputType = input;
+            if (input == InputDataType.DataBase)
+            {
+                SetPageFlip(true);
+
+                PrepareForDB(strDataPath);
+                g_weiboInfoList = GetDataFromDBFile(g_CurIndex);
+            }
+            else if (input == InputDataType.XML)
+            {
+                SetPageFlip(true);
+
+                PrepareForXML(strDataPath);
+                g_HtmlDataPath = strDataPath;
+                g_weiboInfoList = GetDataFromHtmlFile(g_CurIndex);
+            }
+            else
+                MsgResult.DebugMsgBox("Unexpected input data type");
         }
 
         protected override void LocalizationForRunTime()
@@ -52,6 +77,7 @@ namespace DoExport
         private WeiboInfo[] GetDataFromDBFile(int lengthToBeSkipped)
         {
             g_CurIndex = lengthToBeSkipped;
+
             string cmdString = "SELECT * FROM weibo LIMIT " + lengthToBeSkipped.ToString() + ", " + g_MaxCount.ToString();
             DataTable list = DBOperation.SQLiteRequest_Read(cmdString);
             if (list == null)
@@ -108,6 +134,29 @@ namespace DoExport
                 retData[index++] = weibo;
             }
             return retData;
+        }
+
+        private static void PrepareForXML(string strHtmlFilePath)
+        {
+            MsgResult.AssertMsgBox(!string.IsNullOrEmpty(strHtmlFilePath), "GetDataFromHtmlFile: Invalid Parameter: Empty file path");
+            MsgResult.AssertMsgBox(strHtmlFilePath.ToLower().EndsWith("xml") || strHtmlFilePath.ToLower().EndsWith("html"),
+                "GetDataFromHtmlFile: Not a html file.");
+        }
+
+        private WeiboInfo[] GetDataFromHtmlFile(int startIndex)
+        {
+            WeiboInfo[] list = null;
+            WeiboErrorCode err = null;
+
+            g_CurIndex = startIndex;
+
+            string strContent = File.ReadAllText(g_HtmlDataPath);
+            MsgResult.AssertMsgBox(XMLParser.ParseWeiboInfoList(strContent, startIndex, out list, g_MaxCount, out err),
+                "XMLParser.ParseWeiboInfoList: Failed to parse.");
+            MsgResult.AssertMsgBox(err.FSuccess(), err.GetErrorString());
+
+            MsgResult.AssertMsgConsole(list != null && list.Length > 0, "GetDataFromHtmlFile: None data returned.");
+            return list;
         }
 
         private void FrmWeiboList_Load(object sender, EventArgs e)
@@ -168,7 +217,13 @@ namespace DoExport
             if (g_CurIndex < g_MaxCount)
                 return;
 
-            g_weiboInfoList = GetDataFromDBFile(g_CurIndex - g_MaxCount);
+            if (g_InputType == InputDataType.DataBase)
+                g_weiboInfoList = GetDataFromDBFile(g_CurIndex - g_MaxCount);
+            else if(g_InputType == InputDataType.XML)
+                g_weiboInfoList = GetDataFromHtmlFile(g_CurIndex - g_MaxCount);
+            else
+                MsgResult.DebugMsgBox("Unexpected input kind that enabled flip");
+
             if (g_weiboInfoList.Length > 0)
             {
                 btnNext.Enabled = true;
@@ -180,7 +235,13 @@ namespace DoExport
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            g_weiboInfoList = GetDataFromDBFile(g_CurIndex + g_MaxCount);
+            if (g_InputType == InputDataType.DataBase)
+                g_weiboInfoList = GetDataFromDBFile(g_CurIndex + g_MaxCount);
+            else if (g_InputType == InputDataType.XML)
+                g_weiboInfoList = GetDataFromHtmlFile(g_CurIndex + g_MaxCount);
+            else
+                MsgResult.DebugMsgBox("Unexpected input kind that enabled flip");
+
             if (g_weiboInfoList.Length > 0)
             {
                 btnPrevious.Enabled = true;

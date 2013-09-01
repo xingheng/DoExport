@@ -245,7 +245,7 @@ namespace DoExport
 
             WeiboErrorCode err;
             WeiboInfo[] weiboList;
-            XMLParser.ParseWeiboInfoList(resultString, out weiboList, out err);
+            XMLParser.ParseWeiboInfoList(resultString, 0, out weiboList, 0, out err);
             m_lastErrCode = err;
 
             if (m_lastErrCode.FSuccess() && weiboList != null && weiboList.Length > 0)
