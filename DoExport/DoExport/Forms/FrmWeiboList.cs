@@ -15,7 +15,13 @@ namespace DoExport
         };
 
         public WeiboInfo[] g_weiboInfoList;
-        private const int g_MaxCount = 10;
+        private const int g_MaxCount = 
+#if DEBUG
+            20
+#else
+            50
+#endif
+            ;
         private int g_CurIndex = 0; // The index of first item in current page.
         private InputDataType g_InputType;
 
